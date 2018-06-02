@@ -1,6 +1,6 @@
 #pragma once
 #include "Vector.h"
-#include "Personaje.h"
+#include "Protagonista.h"
 #include "Movimiento.h"
 
 #define SPACEBAR 32
@@ -19,7 +19,7 @@ class Mundo {
 private:
 	float zoom;
 	Vector vista;
-	Personaje protagonista;
+	Protagonista protagonista;
 	Movimiento movimiento;	
 
 public:
