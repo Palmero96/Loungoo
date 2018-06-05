@@ -1,14 +1,11 @@
 #pragma once
 #include "ETSIDI.h"
-#include "Prisma.h"
 #include "Arma.h"
 
 using ETSIDI::SpriteSequence;
 
 class Personaje {
 protected:
-	//Para comenzar vamos a definir personaje como un cuadrado
-	Prisma forma;
 	Vector posicion;
 	Vector velocidad;
 	float velocidad_modulo;
@@ -23,7 +20,6 @@ public:
 	virtual void Dibuja();
 	virtual void Mueve(float t);
 
-	void setForma(float a, float b);
 	virtual void setPosicion(float a, float b);
 	void setVelocidad(float a, float b);
 

@@ -3,7 +3,7 @@
 
 class Protagonista : public Personaje {
 private:
-	Arma arma;
+	Arma* arma;
 	float desfase;				//Cuan lejos se encuentra el arma del personaje
 	int posicion_arma;			//La posicion del arma puede ser		0 --> derecha
 								//										1 --> arriba
@@ -21,6 +21,7 @@ public:
 
 	void setPosicion(float a, float b);
 	void setVect_desfase();
+	void setArma(const char* a);
 	void setPosicionArma(int a);
 };
 

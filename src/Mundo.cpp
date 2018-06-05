@@ -81,29 +81,21 @@ void Mundo::TeclaUp(unsigned char key) {
 	case 'A':
 	case 'a':
 		movimiento.setInputs(3, false);
-		protagonista->setPosicionArma(2);
-		protagonista->setVect_desfase();
 		break;
 
 	case 'D':
 	case 'd':
 		movimiento.setInputs(1, false);
-		protagonista->setPosicionArma(0);
-		protagonista->setVect_desfase();
 		break;
 
 	case 'W':
 	case 'w':
 		movimiento.setInputs(2, false);
-		protagonista->setPosicionArma(1);
-		protagonista->setVect_desfase();
 		break;
 
 	case 'S':
 	case 's':
 		movimiento.setInputs(4, false);
-		protagonista->setPosicionArma(3);
-		protagonista->setVect_desfase();
 		break;
 	}
 }
