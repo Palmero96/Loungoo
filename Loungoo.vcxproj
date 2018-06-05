@@ -85,6 +85,9 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>lib;src;</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>lib</AdditionalLibraryDirectories>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -135,7 +138,9 @@
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Municion.cpp" />
     <ClCompile Include="src\Personaje.cpp" />
+    <ClCompile Include="src\PersonajeNeutro.cpp" />
     <ClCompile Include="src\Prisma.cpp" />
+    <ClCompile Include="src\Protagonista.cpp" />
     <ClCompile Include="src\Suelo.cpp" />
     <ClCompile Include="src\Vector.cpp" />
   </ItemGroup>
@@ -148,7 +153,9 @@
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Municion.h" />
     <ClInclude Include="src\Personaje.h" />
+    <ClInclude Include="src\PersonajeNeutro.h" />
     <ClInclude Include="src\Prisma.h" />
+    <ClInclude Include="src\Protagonista.h" />
     <ClInclude Include="src\Suelo.h" />
     <ClInclude Include="src\Vector.h" />
   </ItemGroup>

@@ -7,27 +7,26 @@ void Mundo::Inicializa() {
 
 	zoom = 2;
 	vista.setxy(0, 0);
-	protagonista.setForma(20, 20);
-	protagonista.setPosicion(0, 0);
-	protagonista.setVelocidad_modulo(75);
+	protagonista = new Protagonista(20, 20, 0, 0, "images/Protagonista.png", 3, 4);
+	protagonista->setVelocidad_modulo(75);
 
 	//Modificamos la linea mediante vista
 	glOrtho((vista.getx() - 320) / zoom, (vista.getx() + 320) / zoom, (vista.gety() - 240) / zoom, (vista.gety() + 240) / zoom, -1, 1);
 }
 
 void Mundo::Dibuja() {
-	protagonista.Dibuja();
+	protagonista->Dibuja();
 }
 
 void Mundo::Mueve() {
 	Vector vel = movimiento.getMov_unitario();
-	protagonista.setVelocidad(vel.getx() * protagonista.getVelocidad_modulo(), vel.gety() * protagonista.getVelocidad_modulo());
-	protagonista.Mueve(0.015f);
+	protagonista->setVelocidad(vel.getx() * protagonista->getVelocidad_modulo(), vel.gety() * protagonista->getVelocidad_modulo());
+	protagonista->Mueve(0.015f);
 }
 
 void Mundo::Interacciona() {
 	if (movimiento.disparo_on()) {
-		protagonista.Dispara();
+		protagonista->Dispara();
 	}
 }
 
@@ -39,29 +38,29 @@ void Mundo::Tecla(unsigned char key) {
 	case 'A':
 	case 'a':
 		movimiento.setInputs(3, true);
-		protagonista.setPosicionArma(2);
-		protagonista.setVect_desfase();
+		protagonista->setPosicionArma(2);
+		protagonista->setVect_desfase();
 		break;
 
 	case 'D':
 	case 'd':
 		movimiento.setInputs(1, true);
-		protagonista.setPosicionArma(0);
-		protagonista.setVect_desfase();
+		protagonista->setPosicionArma(0);
+		protagonista->setVect_desfase();
 		break;
 
 	case 'W':
 	case 'w':
 		movimiento.setInputs(2, true);
-		protagonista.setPosicionArma(1);
-		protagonista.setVect_desfase();
+		protagonista->setPosicionArma(1);
+		protagonista->setVect_desfase();
 		break;
 
 	case 'S':
 	case 's':
 		movimiento.setInputs(4, true);
-		protagonista.setPosicionArma(3);
-		protagonista.setVect_desfase();
+		protagonista->setPosicionArma(3);
+		protagonista->setVect_desfase();
 		break;
 	}
 }
@@ -82,29 +81,29 @@ void Mundo::TeclaUp(unsigned char key) {
 	case 'A':
 	case 'a':
 		movimiento.setInputs(3, false);
-		protagonista.setPosicionArma(2);
-		protagonista.setVect_desfase();
+		protagonista->setPosicionArma(2);
+		protagonista->setVect_desfase();
 		break;
 
 	case 'D':
 	case 'd':
 		movimiento.setInputs(1, false);
-		protagonista.setPosicionArma(0);
-		protagonista.setVect_desfase();
+		protagonista->setPosicionArma(0);
+		protagonista->setVect_desfase();
 		break;
 
 	case 'W':
 	case 'w':
 		movimiento.setInputs(2, false);
-		protagonista.setPosicionArma(1);
-		protagonista.setVect_desfase();
+		protagonista->setPosicionArma(1);
+		protagonista->setVect_desfase();
 		break;
 
 	case 'S':
 	case 's':
 		movimiento.setInputs(4, false);
-		protagonista.setPosicionArma(3);
-		protagonista.setVect_desfase();
+		protagonista->setPosicionArma(3);
+		protagonista->setVect_desfase();
 		break;
 	}
 }
