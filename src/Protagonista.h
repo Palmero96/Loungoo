@@ -12,7 +12,7 @@ private:
 	Vector vect_desfase;
 public:
 	Protagonista();
-	Protagonista(float a, float b, float c, float d);
+	Protagonista(float a, float b, float c, float d, const char* path, int xa, int xb);
 	~Protagonista();
 
 	void Dibuja();

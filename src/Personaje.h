@@ -1,6 +1,9 @@
 #pragma once
+#include "ETSIDI.h"
 #include "Prisma.h"
 #include "Arma.h"
+
+using ETSIDI::SpriteSequence;
 
 class Personaje {
 protected:
@@ -10,9 +13,11 @@ protected:
 	Vector velocidad;
 	float velocidad_modulo;
 
+	SpriteSequence sprite;
+
 public:
 	Personaje();
-	Personaje(float a, float b, float c, float d);
+	Personaje(float a, float b, float c, float d, const char* path, int xa, int xb);
 	~Personaje();
 
 	virtual void Dibuja();

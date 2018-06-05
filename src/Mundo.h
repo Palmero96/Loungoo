@@ -19,7 +19,7 @@ class Mundo {
 private:
 	float zoom;
 	Vector vista;
-	Protagonista protagonista;
+	Protagonista* protagonista;
 	Movimiento movimiento;	
 
 public:

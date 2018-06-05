@@ -1,5 +1,6 @@
-#include <glut.h>
+
 #include "Mundo.h"
+#include <glut.h>
 
 Mundo mundo;
 

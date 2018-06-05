@@ -7,12 +7,14 @@ PersonajeNeutro::PersonajeNeutro() : Personaje(){
 }
 
 
-PersonajeNeutro::PersonajeNeutro(float a, float b, float c, float d) : Personaje(a, b, c, d){
+PersonajeNeutro::PersonajeNeutro(float a, float b, float c, float d, const char* path, int xa, int xb)
+: Personaje(a, b, c, d, path, xa, xb){
 	rango = 1.0f;
 }
 
 
-PersonajeNeutro::PersonajeNeutro(float a, float b, float c, float d, float r) : Personaje(a, b, c, d) {
+PersonajeNeutro::PersonajeNeutro(float a, float b, float c, float d, float r, const char* path, int xa, int xb)
+: Personaje(a, b, c, d, path, xa, xb) {
 	rango = r;
 }
 

@@ -8,7 +8,8 @@ Protagonista::Protagonista() : Personaje() {
 	posicion_arma = 0;
 }
 
-Protagonista::Protagonista(float a, float b, float c, float d) : Personaje(a, b, c, d) {
+Protagonista::Protagonista(float a, float b, float c, float d, const char* path, int xa, int xb) 
+: Personaje(a, b, c, d, path, xa, xb) {
 	arma.setPosicion(posicion + vect_desfase);
 	desfase = 16;
 	posicion_arma = 0;
