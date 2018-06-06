@@ -37,11 +37,11 @@ Mapa::Mapa(const char* mapa, const char* path1, const char* path2) {
 
 	archivo.close();
 
-	suelo[0] = new Suelo(text1);
-	suelo[1] = new Suelo(text2);
+	suelo[0] = new Suelo(text1, 4);
+	suelo[1] = new Suelo(text2, 4.03);
 
-	anchopixel = (suelo[0]->getAnchotext()/(4*colM));
-	altopixel = (suelo[0]->getAltotext()/(4*filM));
+	anchopixel = (suelo[0]->getAnchotext() / colM);
+	altopixel = (suelo[0]->getAltotext() / filM);
 }
 
 
@@ -50,9 +50,9 @@ Mapa::~Mapa() {
 }
 
 void Mapa::Dibuja() {
-	suelo[0]->Dibuja(4);
+	suelo[0]->Dibuja();
 }
 
 void Mapa::Dibuja2() {
-	suelo[1]->Dibuja(4.03);
+	suelo[1]->Dibuja();
 }

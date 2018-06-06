@@ -4,18 +4,22 @@
 
 
 
-Suelo::Suelo(const char* a) {
+Suelo::Suelo(const char* a, float z) {
+	zoom = z;
+	
 	path = a;
-	anchotext = ETSIDI::getTexture(path).width;
-	altotext = ETSIDI::getTexture(path).height;
+	anchotext = 2 * ETSIDI::getTexture(path).width / zoom;
+	altotext = 2 * ETSIDI::getTexture(path).height / zoom;
 
 	offset.setxy(0, 0);
 }
 
-Suelo::Suelo(const char* a, float b, float c) {
+Suelo::Suelo(const char* a, float b, float c, float z) {
+	zoom = z;
+
 	path = a;
-	anchotext = ETSIDI::getTexture(path).width;
-	altotext = ETSIDI::getTexture(path).height;
+	anchotext = 2 * ETSIDI::getTexture(path).width / zoom;
+	altotext = 2 * ETSIDI::getTexture(path).height / zoom;
 
 	offset.setxy(b, c);
 }
@@ -24,7 +28,7 @@ Suelo::~Suelo()
 {
 }
 
-void Suelo::Dibuja(float zoom) {
+void Suelo::Dibuja() {
 	glEnable(GL_BLEND);									
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  //Mediante estas dos lineas de codigo se activa el canal alpha
 
