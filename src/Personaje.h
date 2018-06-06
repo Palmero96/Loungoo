@@ -22,7 +22,8 @@ public:
 
 	virtual void setPosicion(float a, float b);
 	void setVelocidad(float a, float b);
-
+	
+	Vector getPosicion() { return posicion; }
 	float getPosicionx();
 	float getPosiciony();
 	

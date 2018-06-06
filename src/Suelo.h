@@ -7,6 +7,6 @@ public:
 	Suelo();
 	~Suelo();
 
-	void Dibuja(const char* a);
+	void Dibuja(float zoom, const char* a);
 };
 

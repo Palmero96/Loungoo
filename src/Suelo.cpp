@@ -12,7 +12,7 @@ Suelo::~Suelo()
 {
 }
 
-void Suelo::Dibuja(const char* a) {
+void Suelo::Dibuja(float zoom, const char* a) {
 	
 	glEnable(GL_BLEND);									
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  //Mediante estas dos lineas de codigo se activa el canal alpha
@@ -25,10 +25,10 @@ void Suelo::Dibuja(const char* a) {
 	glBegin(GL_POLYGON);
 	glColor4f(1, 1, 1, 1);
 
-	glTexCoord2d(0, 1); glVertex2f(-ETSIDI::getTexture(a).width / 4, -ETSIDI::getTexture(a).height / 4);
-	glTexCoord2d(0, 0); glVertex2f(-ETSIDI::getTexture(a).width / 4, ETSIDI::getTexture(a).height / 4);
-	glTexCoord2d(1, 0); glVertex2f(ETSIDI::getTexture(a).width / 4, ETSIDI::getTexture(a).height / 4);
-	glTexCoord2d(1, 1); glVertex2f(ETSIDI::getTexture(a).width / 4, -ETSIDI::getTexture(a).height / 4);
+	glTexCoord2d(0, 1); glVertex2f(-ETSIDI::getTexture(a).width / zoom, -ETSIDI::getTexture(a).height / zoom);
+	glTexCoord2d(0, 0); glVertex2f(-ETSIDI::getTexture(a).width / zoom, ETSIDI::getTexture(a).height / zoom);
+	glTexCoord2d(1, 0); glVertex2f(ETSIDI::getTexture(a).width / zoom, ETSIDI::getTexture(a).height / zoom);
+	glTexCoord2d(1, 1); glVertex2f(ETSIDI::getTexture(a).width / zoom, -ETSIDI::getTexture(a).height / zoom);
 
 	glEnd();
 	glEnable(GL_LIGHTING);
