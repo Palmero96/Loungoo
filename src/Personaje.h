@@ -12,6 +12,7 @@ protected:
 
 	SpriteSequence sprite;
 
+	friend class Interaccion;
 public:
 	Personaje();
 	Personaje(float a, float b, float c, float d, const char* path, int xa, int xb);

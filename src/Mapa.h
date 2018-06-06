@@ -5,10 +5,21 @@
 
 class Mapa {
 private:
-	Suelo suelo;
+	Suelo* suelo[2];
+	int** matrizColision;
 	PersonajeNeutro* personajes[10];
+
+	int colM;
+	int filM;
+
+	const char* text1;
+	const char* text2;
+
+	float anchopixel, altopixel;
+
+	friend class Interaccion;
 public:
-	Mapa();
+	Mapa(const char* mapa, const char* path1, const char* path2);
 	~Mapa();
 
 	void Dibuja();

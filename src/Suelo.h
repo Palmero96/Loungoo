@@ -1,12 +1,22 @@
 #pragma once
+#include "Vector.h"
 
 class Suelo {
 private:
-	char** colision;
+	float anchotext;
+	float altotext;
+
+	Vector offset;
+
+	const char* path;
 public:
-	Suelo();
+	Suelo(const char* a);
+	Suelo(const char* a, float b, float c);
 	~Suelo();
 
-	void Dibuja(float zoom, const char* a);
+	float getAnchotext() { return anchotext; }
+	float getAltotext() { return altotext; }
+
+	void Dibuja(float zoom);
 };
 

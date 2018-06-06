@@ -22,8 +22,7 @@ private:
 	Vector vista;
 	Protagonista* protagonista;
 	Movimiento movimiento;	
-	Mapa mapa;
-
+	Mapa* mapa;
 public:
 	void Inicializa();
 	void Dibuja();

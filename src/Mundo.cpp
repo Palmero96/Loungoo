@@ -1,5 +1,6 @@
 #include "Mundo.h"
 #include "glut.h"
+#include "Interaccion.h"
 
 void Mundo::Inicializa() {
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);		//Establece el color de fondo como negro opaco
@@ -10,20 +11,22 @@ void Mundo::Inicializa() {
 	protagonista = new Protagonista(20, 20, 0, 0, "images/Protagonista.png", 3, 4);
 	protagonista->setVelocidad_modulo(75);
 
-	//glOrtho((vista.getx() - 320) / zoom, (vista.getx() + 320) / zoom, (vista.gety() - 240) / zoom, (vista.gety() + 240) / zoom, -1, 1);
+	mapa = new Mapa("sources/Mapa1.txt", "images/Mapa1.png", "images/Mapa1_2.png");
 }
 
 void Mundo::Dibuja() {
 	
-	mapa.Dibuja();
+	mapa->Dibuja();
 	protagonista->Dibuja();
-	mapa.Dibuja2();
+	mapa->Dibuja2();
 }
 
 void Mundo::Mueve() {
 	Vector vel = movimiento.getMov_unitario();
 	protagonista->setVelocidad(vel.getx() * protagonista->getVelocidad_modulo(), vel.gety() * protagonista->getVelocidad_modulo());
 	protagonista->Mueve(0.015f);
+
+	Interaccion::Colision(*protagonista, *mapa);
 }
 
 void Mundo::MueveCamara() {
