@@ -5,13 +5,12 @@ void Mundo::Inicializa() {
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);		//Establece el color de fondo como negro opaco
 	glClear(GL_COLOR_BUFFER_BIT);				//Limpia el buffer del background
 
-	zoom = 2;
+	zoom = 2.2;
 	vista.setxy(0, 0);
 	protagonista = new Protagonista(20, 20, 0, 0, "images/Protagonista.png", 3, 4);
 	protagonista->setVelocidad_modulo(75);
 
-	//Modificamos la linea mediante vista
-	glOrtho((vista.getx() - 320) / zoom, (vista.getx() + 320) / zoom, (vista.gety() - 240) / zoom, (vista.gety() + 240) / zoom, -1, 1);
+	//glOrtho((vista.getx() - 320) / zoom, (vista.getx() + 320) / zoom, (vista.gety() - 240) / zoom, (vista.gety() + 240) / zoom, -1, 1);
 }
 
 void Mundo::Dibuja() {
@@ -25,6 +24,15 @@ void Mundo::Mueve() {
 	Vector vel = movimiento.getMov_unitario();
 	protagonista->setVelocidad(vel.getx() * protagonista->getVelocidad_modulo(), vel.gety() * protagonista->getVelocidad_modulo());
 	protagonista->Mueve(0.015f);
+}
+
+void Mundo::MueveCamara() {
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	vista.setxy(protagonista->getPosicionx()*zoom, protagonista->getPosiciony()*zoom);
+
+	glOrtho((vista.getx() - 320) / zoom, (vista.getx() + 320) / zoom, (vista.gety() - 240) / zoom, (vista.gety() + 240) / zoom, -1, 1);
 }
 
 void Mundo::Interacciona() {
@@ -64,6 +72,14 @@ void Mundo::Tecla(unsigned char key) {
 		movimiento.setInputs(4, true);
 		protagonista->setPosicionArma(3);
 		protagonista->setVect_desfase();
+		break;
+	case 'O':
+	case 'o':
+		zoom = 2;
+		break;
+	case 'P':
+	case 'p':
+		zoom = 1;
 		break;
 	}
 }

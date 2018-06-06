@@ -53,6 +53,8 @@ void OnTimer(int value) {
 	mundo.Mueve();
 	mundo.Interacciona();
 
+	mundo.MueveCamara();
+
 	glutPostRedisplay();
 	//Seteamos un valor de 25ms de refresh
 	glutTimerFunc(15, OnTimer, 0);

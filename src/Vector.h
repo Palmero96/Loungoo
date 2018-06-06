@@ -1,4 +1,5 @@
 #pragma once
+#include <cmath>
 
 class Vector {
 private:
@@ -16,4 +17,7 @@ public:
 	Vector operator * (float t);
 	Vector operator + (Vector a);
 	Vector operator + (float t);
+	Vector operator - (Vector a);
+	float operator[] (Vector a);
+	Vector difUni (Vector a);
 };
