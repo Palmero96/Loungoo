@@ -19,7 +19,7 @@ void keyboardUp(unsigned char key, int x, int y);
 
 int main(int arcg, char** argv) {
 	glutInit(&arcg, argv);								//Inicializa GLUT
-	glutInitDisplayMode(GLUT_DOUBLE);		//Para doble buffer --> GLUT_DOUBLE
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);		//Para doble buffer --> GLUT_DOUBLE
 
 	glutInitWindowSize(anchopantalla, altopantalla);
 	glutInitWindowPosition(50, 50);

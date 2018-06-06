@@ -15,7 +15,10 @@ void Mundo::Inicializa() {
 }
 
 void Mundo::Dibuja() {
+	
+	mapa.Dibuja();
 	protagonista->Dibuja();
+	mapa.Dibuja2();
 }
 
 void Mundo::Mueve() {
