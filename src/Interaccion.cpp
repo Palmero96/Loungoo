@@ -16,7 +16,7 @@ void Interaccion::Colision(Personaje& p, Pixel& pix) {
 		|| (p.getPosicionx() + margen) >= pix.limitex1 && (p.getPosicionx() + margen) <= pix.limitex2
 		&& (p.getPosiciony() - margen) >= pix.limitey1 && (p.getPosiciony() - margen) <= pix.limitey2) {
 
-		if (p.velocidad.getx() > 0 && (p.getPosicionx() - pix.limitex1) > (p.getPosiciony() - pix.limitey1) {
+		if (p.velocidad.getx() > 0) {
 			p.setPosicion(pix.limitex1 - margen2, p.getPosiciony());
 		}
 		else if (p.velocidad.getx() < 0) {
@@ -32,7 +32,7 @@ void Interaccion::Colision(Personaje& p, Pixel& pix) {
 			p.setPosicion(pix.limitex2 + margen2, p.getPosiciony());
 		}
 		if (p.velocidad.gety() > 0 && p.velocidad.getx() == 0) {
-			p.setPosicion(p.getPosicionx(), pix.limitey1 - margen);
+			p.setPosicion(p.getPosicionx(), pix.limitey1 - margen2);
 		}
 	}
 }
