@@ -1,26 +1,44 @@
 #include "Arma.h"
 
 
-Arma::Arma() {
-	forma.setDimension(5, 10);
-	forma.setCentro(posicion);
-	municion.setContador(0);
+Arma::Arma() : sprite(0, 0, 0) {
+	sprite.setSize(5, 5);
+	sprite.setCenter(posicion.getx(), posicion.gety());
 
-	forma.setColor(255, 0, 0);
+	municion.setContador(0);
+}
+
+Arma::Arma(const char* path) : sprite(path) {
+	sprite.setSize(7, 7);
+	sprite.setCenter(posicion.getx(), posicion.gety());
+
+	municion.setContador(0);
 }
 
 Arma::~Arma() {
 
 }
 
-void Arma::Dibuja() {
-	forma.Dibuja();
+void Arma::Dibuja(int pos) {
+	
+	glPushMatrix();
+	glTranslatef(posicion.getx(), posicion.gety(), 0);
+	glColor3f(1.0f, 1.0f, 1.0f);
+
+	if (pos == 0)	sprite.flip(false, false);
+	if (pos == 1)	sprite.flip(true, false);
+	if (pos == 2)	sprite.flip(false, true);
+	if (pos == 3)	sprite.flip(true, false);
+
+
+	sprite.draw();
+	glPopMatrix();
+
 	municion.Dibuja();
 }
 
 void Arma::Mueve(float t, Vector a) {
-	posicion = a; 
-	forma.setCentro(posicion);
+	posicion.setxy(a.getx(), a.gety() - 3.5f);
 	municion.Mueve(t);
 }
 
@@ -30,7 +48,6 @@ void Arma::resetMunicion() {
 
 void Arma::setPosicion(Vector a) {
 	posicion = a;
-	forma.setCentro(posicion);
 }
 
 int Arma::getAmmo() {
@@ -40,11 +57,11 @@ int Arma::getAmmo() {
 }
 
 void Arma::Dispara(int a) {
-	Disparo* aux = new Disparo(posicion);
+	Disparo* aux = new Disparo(posicion, "images/Disparo1.png");
 	aux->setVelocidad(a);
 	municion.agregar(aux);
 }
 
 void Arma::setAngulo(float a) {
-	forma.setAngulo(a);
+	sprite.setAngle(a);
 }

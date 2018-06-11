@@ -2,6 +2,7 @@
 #include "Vector.h"
 #include "Protagonista.h"
 #include "Movimiento.h"
+#include "Mapa.h"
 
 #define SPACEBAR 32
 
@@ -21,11 +22,12 @@ private:
 	Vector vista;
 	Protagonista* protagonista;
 	Movimiento movimiento;	
-
+	Mapa* mapa;
 public:
 	void Inicializa();
 	void Dibuja();
 	void Mueve();
+	void MueveCamara();
 	void Interacciona();
 	void Tecla(unsigned char key);
 	void TeclaUp(unsigned char key);

@@ -1,17 +1,21 @@
 #pragma once
-#include "Prisma.h"
+#include "ETSIDI.h"
+#include "Vector.h"
+
+using ETSIDI::SpriteSequence;
 
 class Disparo {
 private:
-	Prisma forma;
 	float daño;
 	Vector velocidad;
 	Vector posicion;
 	float vel;							//Valor modular del vector velocidad
+
+	SpriteSequence sprite;
 public:
 	Disparo();
-	Disparo(float a, float b, float c);			//Para la posterior creación de disparos de diferentes características (Dimensiones) y (Daño)
-	Disparo(Vector a);
+	Disparo(float a, float c, const char* path);			//Para la posterior creación de disparos de diferentes características (Dimensiones) y (Daño)
+	Disparo(Vector a, const char* path);
 	~Disparo();
 
 	void Dibuja();
