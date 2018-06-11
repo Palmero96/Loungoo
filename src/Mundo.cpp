@@ -28,7 +28,8 @@ void Mundo::Mueve() {
 	protagonista->setVelocidad(vel.getx() * protagonista->getVelocidad_modulo(), vel.gety() * protagonista->getVelocidad_modulo());
 	protagonista->Mueve(0.015f);
 
-	Interaccion::Colision(*protagonista, *mapa);
+	Mundo::Interacciona();
+	Mundo::MueveCamara();
 }
 
 void Mundo::MueveCamara() {
@@ -40,10 +41,21 @@ void Mundo::MueveCamara() {
 	glOrtho((vista.getx() - 320) / zoom, (vista.getx() + 320) / zoom, (vista.gety() - 240) / zoom, (vista.gety() + 240) / zoom, -1, 1);
 }
 
+
+Vector Mundo::getPosicionCamara() {
+	Vector aux;
+	aux.setxy(protagonista->getPosicionx(), protagonista->getPosiciony());
+	return aux;
+}
+
+
 void Mundo::Interacciona() {
+
 	if (movimiento.disparo_on()) {
 		protagonista->Dispara();
 	}
+
+	Interaccion::Colision(*protagonista, *mapa);
 }
 
 void Mundo::Tecla(unsigned char key) {

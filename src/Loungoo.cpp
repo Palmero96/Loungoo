@@ -1,8 +1,8 @@
 
-#include "Mundo.h"
+#include "Coordinador.h"
 #include <glut.h>
 
-Mundo mundo;
+Coordinador Loungoo;
 
 int KeyDown[256];
 
@@ -33,8 +33,6 @@ int main(int arcg, char** argv) {
 	glutSpecialFunc(OnSpecialKeyboardDown);
 	glutSpecialUpFunc(OnSpecialKeyboardUp);
 
-	mundo.Inicializa();									//Inicializamos el mundo
-
 	glutMainLoop();
 	return 0;
 }
@@ -43,17 +41,14 @@ int main(int arcg, char** argv) {
 void OnDraw(void) {;
 	glClear(GL_COLOR_BUFFER_BIT); //Borrado de la pantalla
 
-	mundo.Dibuja();
+	Loungoo.Dibuja();
 
 	glutSwapBuffers();			//Renderizado
 }
 
 
 void OnTimer(int value) {
-	mundo.Mueve();
-	mundo.Interacciona();
-
-	mundo.MueveCamara();
+	Loungoo.Mueve();
 
 	glutPostRedisplay();
 	//Seteamos un valor de 25ms de refresh
@@ -62,23 +57,23 @@ void OnTimer(int value) {
 }
 
 void OnSpecialKeyboardDown(int key, int x, int y) {
-	mundo.TeclaEspecial(key);
+	Loungoo.TeclaEspecial(key);
 }
 
 void OnSpecialKeyboardUp(int key, int x, int y) {
-	mundo.TeclaEspecialUp(key);
+	Loungoo.TeclaEspecialUp(key);
 }
 
 void keyboard(unsigned char key, int x, int y) {
 	KeyDown[key] = 1;
 
-	mundo.Tecla(key);
+	Loungoo.Tecla(key);
 	glutPostRedisplay();
 }
 
 void keyboardUp(unsigned char key, int x, int y) {
 	KeyDown[key] = 0;
 
-	mundo.TeclaUp(key);
+	Loungoo.TeclaUp(key);
 	glutPostRedisplay();
 }
