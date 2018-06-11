@@ -1,13 +1,15 @@
 #pragma once
 #include "Suelo.h"
+#include "Pixel.h"
 #include "PersonajeNeutro.h"
-
 
 class Mapa {
 private:
 	Suelo* suelo[2];
 	int** matrizColision;
 	PersonajeNeutro* personajes[10];
+	Pixel** pixColision;
+	int numpixels;
 
 	int colM;
 	int filM;
@@ -24,5 +26,6 @@ public:
 
 	void Dibuja();
 	void Dibuja2();
+	void setPixels();
 };
 
