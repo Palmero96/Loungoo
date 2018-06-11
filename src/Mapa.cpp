@@ -66,9 +66,9 @@ void Mapa::Dibuja() {
 void Mapa::Dibuja2() {
 	suelo[1]->Dibuja();
 
-	for (int i = 0; i < numpixels; i++) {
+	/*for (int i = 0; i < numpixels; i++) {
 		pixColision[i]->Dibuja();
-	}
+	}*/
 }
 
 
