@@ -28,6 +28,7 @@ public:
 	void Dibuja();
 	void Mueve();
 	void MueveCamara();
+	Vector getPosicionCamara();
 	void Interacciona();
 	void Tecla(unsigned char key);
 	void TeclaUp(unsigned char key);
