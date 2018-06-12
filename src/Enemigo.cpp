@@ -32,50 +32,32 @@ void Enemigo::Mueve(float t, Personaje& p)
 	
 }
 
+bool Dispara(Personaje& p) {
 
-void Protagonista::setPosicion(float a, float b) {
-	Personaje::setPosicion(a, b);
-	arma->setPosicion(posicion + vect_desfase);
-}
+	Vector aux;
+	float ret;
+	aux.setxy(p.getPosicionx() - posicion.getx , p.getPosiciony()- posicion.gety);
+	ret = sqrt(aux.getx() * aux.getx() + aux.gety()*aux.gety());
+	return ret;
 
 
-bool Protagonista::Dispara() {
-	if (arma->getAmmo() > 0) {
-		arma->Dispara(posicion_arma);
+	if (ret<50)
 		return 1;
-	}
-	else return 0;
+	else 
+		return 0;
+
+
 }
 
 
-void Protagonista::setVect_desfase() {
-	switch (posicion_arma) {
-	case 1:
-		vect_desfase.setxy(desfase, 0);
-		arma->setAngulo(90.0f);
-		break;
-	case 2:
-		vect_desfase.setxy(0, desfase);
-		arma->setAngulo(180.0f);
-		break;
-	case 3:
-		vect_desfase.setxy(-desfase, 0);
-		arma->setAngulo(270.0f);
-		break;
-	case 0:
-		vect_desfase.setxy(0, -desfase);
-		arma->setAngulo(0.0f);
-		break;
-	}
+
+
+
+void Enemigo::setPosicion(float a, float b) {
+	Personaje::setPosicion(a, b);
 }
 
-void Protagonista::setPosicionArma(int a) {
-	posicion_arma = a;
-}
 
-void Protagonista::setArma(const char* a) {
-	arma = new Arma(a);
-}
 Enemigo::Enemigo()
 {
 }
