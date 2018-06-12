@@ -12,6 +12,7 @@ void Mundo::Inicializa() {
 	protagonista->setVelocidad_modulo(75);
 
 	mapa = new Mapa("sources/Mapa1.txt", "images/Mapa1.png", "images/Mapa1_2.png");
+	mapa = new Mapa("sources/Mapa2.txt", "images/Mapa2.png", "images/Mapa2_2.png");
 
 	glOrtho((vista.getx() - 320) / zoom, (vista.getx() + 320) / zoom, (vista.gety() - 240) / zoom, (vista.gety() + 240) / zoom, -1, 1);
 }

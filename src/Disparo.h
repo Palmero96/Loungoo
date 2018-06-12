@@ -22,5 +22,9 @@ public:
 	void Mueve(float t);
 	void setPosicion(Vector a);
 	void setVelocidad(int a);			//Se ursará de igual forma que el atributo "posicion_arma" de la clase "personaje"
+	float Disparo::getPosicionx();
+	float Disparo::getPosiciony();
+	}
+
 };
 
