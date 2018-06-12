@@ -5,7 +5,7 @@
 
 class Coordinador {
 private:
-	enum Estado{INICIO, JUEGO, PAUSA, GAMEOVER, FIN};
+	enum Estado{INICIO, JUEGO, PAUSA, GAMEOVER, FIN, CONVERSACION};
 
 	Estado estado;
 	Mundo mundo;

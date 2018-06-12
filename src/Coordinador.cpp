@@ -5,7 +5,6 @@
 Coordinador::Coordinador() {
 	estado = INICIO;
 	anima.resetValori();
-	//mundo.Inicializa();
 }
 
 
@@ -34,11 +33,25 @@ void Coordinador::Dibuja() {
 	}
 
 	else if (estado == GAMEOVER) {
-		//animacionGameover.Dibuja();
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);		//Establece el color de fondo como negro opaco
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+		glOrtho(-320, 320, -240, 240, -1, 1);
+
+		anima.DibujaAnimacion2();
 	}
 
 	else if (estado == FIN) {
-		//animacionFin.Dibuja();
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);		//Establece el color de fondo como negro opaco
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+		glOrtho(-320, 320, -240, 240, -1, 1);
+
+		anima.DibujaAnimacion3();
+	}
+
+	else if (estado == CONVERSACION) {
+		mundo.Dibuja();
 	}
 }
 
@@ -47,6 +60,7 @@ void Coordinador::Mueve() {
 	if (estado == JUEGO) {
 		mundo.Mueve();
 		/*INTRODUCIR LA CONDICION PARA CAMBIAR DE ESTADO*/
+		//Acordarse de resetear el valor i al cambiar a estados con animacion
 	}
 }
 
@@ -93,6 +107,26 @@ void Coordinador::Tecla(unsigned char key) {
 			break;
 		}
 	}
+
+	else if (estado == GAMEOVER) {
+		switch (key) {
+		case 'Y':
+		case 'y':
+			mundo.Inicializa();
+			estado = JUEGO;
+			break;
+		case 'N':
+		case 'n':
+			exit(0);
+			break;
+		}
+	}
+
+	else if (estado == FIN) {
+		if (key >= 0 && key <= 256) {
+			exit(0);
+		}
+	}
 }
 
 
@@ -125,5 +159,4 @@ void Coordinador::DibujaTextura(const char* path, float zoom, Vector a){
 	glEnable(GL_LIGHTING);
 	glDisable(GL_BLEND);
 	glDisable(GL_TEXTURE_2D);
-
 }

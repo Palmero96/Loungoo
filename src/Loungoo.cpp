@@ -51,7 +51,7 @@ void OnTimer(int value) {
 	Loungoo.Mueve();
 
 	glutPostRedisplay();
-	//Seteamos un valor de 25ms de refresh
+	//Seteamos un valor de 15ms de refresh
 	glutTimerFunc(15, OnTimer, 0);
 	//glutPostRedisplay();
 }
