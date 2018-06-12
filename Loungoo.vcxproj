@@ -132,6 +132,7 @@
     <ClCompile Include="src\Arma.cpp" />
     <ClCompile Include="src\Bonus.cpp" />
     <ClCompile Include="src\Disparo.cpp" />
+    <ClCompile Include="src\Enemigo.cpp" />
     <ClCompile Include="src\Interaccion.cpp" />
     <ClCompile Include="src\Loungoo.cpp" />
     <ClCompile Include="src\Mapa.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="src\Arma.h" />
     <ClInclude Include="src\Bonus.h" />
     <ClInclude Include="src\Disparo.h" />
+    <ClInclude Include="src\Enemigo.h" />
     <ClInclude Include="src\Interaccion.h" />
     <ClInclude Include="src\Mapa.h" />
     <ClInclude Include="src\Movimiento.h" />
