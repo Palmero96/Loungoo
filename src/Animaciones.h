@@ -9,5 +9,8 @@ public:
 
 	void DibujaAnimacion1();
 	void DibujaAnimacion2();
+
+	void resetValori();
+	void suma();
 };
 

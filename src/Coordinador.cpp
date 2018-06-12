@@ -3,11 +3,9 @@
 
 
 Coordinador::Coordinador() {
-	estado = JUEGO;
-	mundo.Inicializa();
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	glOrtho(- 320, 320, - 240, 240, -1, 1);
+	estado = INICIO;
+	anima.resetValori();
+	//mundo.Inicializa();
 }
 
 
@@ -17,17 +15,22 @@ Coordinador::~Coordinador() {
 
 void Coordinador::Dibuja() {
 	if (estado == INICIO) {
+
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);		//Establece el color de fondo como negro opaco
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+		glOrtho(-320, 320, -240, 240, -1, 1);
+
 		anima.DibujaAnimacion1();
 	}
 
 	else if (estado == JUEGO) {
-		//mundo.Dibuja();
-		anima.DibujaAnimacion1();
+		mundo.Dibuja();
 	}
 
 	else if (estado == PAUSA) {
-		//mundo.Dibuja();
-		Coordinador::DibujaTextura("images/Introduccion_1.png", 6, mundo.getPosicionCamara());
+		mundo.Dibuja();
+		Coordinador::DibujaTextura("images/Pause.png", 6, mundo.getPosicionCamara());
 	}
 
 	else if (estado == GAMEOVER) {
@@ -63,7 +66,14 @@ void Coordinador::TeclaEspecialUp(int key) {
 
 
 void Coordinador::Tecla(unsigned char key) {
-	if (estado == JUEGO) {
+	if (estado == INICIO) {
+		if (key >= 0 && key <= 256){
+			mundo.Inicializa();
+			estado = JUEGO;
+		}
+	}
+
+	else if (estado == JUEGO) {
 		mundo.Tecla(key);
 		switch (key) {
 		case 27:
@@ -115,4 +125,5 @@ void Coordinador::DibujaTextura(const char* path, float zoom, Vector a){
 	glEnable(GL_LIGHTING);
 	glDisable(GL_BLEND);
 	glDisable(GL_TEXTURE_2D);
-	}
+
+}
