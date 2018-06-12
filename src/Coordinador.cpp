@@ -49,10 +49,6 @@ void Coordinador::Dibuja() {
 
 		anima.DibujaAnimacion3();
 	}
-
-	else if (estado == CONVERSACION) {
-		mundo.Dibuja();
-	}
 }
 
 

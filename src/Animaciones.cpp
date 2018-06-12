@@ -58,7 +58,7 @@ void Animaciones::DibujaAnimacion3() {
 }
 
 
-void Animaciones::DibujaConversacion(int a, int b) {
+/*void Animaciones::DibujaConversacion(int a, int b) {
 	if (a == 0) {
 		if (b == 0) {
 			Animaciones::DibujaTextura("images/Conversacion_1.png");
@@ -67,7 +67,7 @@ void Animaciones::DibujaConversacion(int a, int b) {
 			Animaciones::DibujaTextura("images/Conversacion_1_2.png");
 		}
 	}
-}
+}*/
 
 
 
