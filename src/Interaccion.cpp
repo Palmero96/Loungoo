@@ -3,6 +3,7 @@
 
 
 
+
 void Interaccion::Colision(Personaje& p, Pixel& pix) {
 	int margen = 8; //margen de colision con paredes
 	int margen2 = 8.5;
@@ -48,6 +49,25 @@ bool Interaccion::Choque(Disparo& d, Pixel& pix) {
 		return 1;
 	else
 		return 0;
+
+
+
+}
+
+bool Interaccion::ataquecercano(Personaje& p, Personaje& e) {
+
+
+	int margen = 7; //margen de colision con otros personajes
+
+    protagonista= (p.getPosicion());
+	enemigo = (e.getPosicion());
+
+
+	if (protagonista[enemigo] < 2*margen)
+		return 1;
+	else
+		return 0;
+
 
 
 
