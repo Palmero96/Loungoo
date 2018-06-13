@@ -27,7 +27,7 @@ PersonajeNeutro::~PersonajeNeutro() {
 }
 
 
-void PersonajeNeutro::Interacciona(Vector p) {
+void PersonajeNeutro::Interacciona(Vector p, Personaje* p1) {
 	const char* path = "images/Conversacion_1.png";
 	Vector a(0, 0);
 	float zoom = 4.3;

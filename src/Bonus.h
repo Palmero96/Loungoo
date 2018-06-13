@@ -8,6 +8,8 @@ private:
 	Vector posicion;
 
 	Sprite sprite;
+
+	friend class Interaccion;
 public:
 	~Bonus();
 	Bonus(Vector pos);

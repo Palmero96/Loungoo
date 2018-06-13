@@ -57,7 +57,20 @@ void Coordinador::Mueve() {
 		mundo.Mueve();
 		/*INTRODUCIR LA CONDICION PARA CAMBIAR DE ESTADO*/
 		//Acordarse de resetear el valor i al cambiar a estados con animacion
+		if (mundo.getMyMap() == 1) {			//Valor del mapa 2
+			if (mundo.getNumeroPersonajes() == 0) {
+				anima.resetValori();
+				estado = FIN;
+			}
+
+		}
+
+		if (mundo.getVidaProtagonista() <= 0) {
+			anima.resetValori();
+			estado = GAMEOVER;
+		}
 	}
+	
 }
 
 

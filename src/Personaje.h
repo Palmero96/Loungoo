@@ -7,6 +7,7 @@ using ETSIDI::SpriteSequence;
 class Personaje {
 protected:
 	float vida;
+	int dinero;
 
 	Vector posicion;
 	Vector velocidad;
@@ -34,9 +35,18 @@ public:
 	float getVelocidad_modulo();
 
 	virtual float getRango() { return 0; }
-	virtual void Interacciona(Vector p) {}
+	virtual void Interacciona(Vector p, Personaje* p1) {}
 	virtual bool Dispara() { return false; }
 
 	virtual void restarVida(float daño) { vida = 1; }
+	float getVida() { return vida; }
+	virtual void resetVida() {}
+
+	void sumaDinero() { dinero++; }
+	float getDinero() { return dinero; }
+
+	virtual void setArma(const char* a){}
+	virtual void aumentaDmg() {}
+	virtual void setArmaSize(float a, float b){}
 };
 

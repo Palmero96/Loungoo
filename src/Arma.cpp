@@ -65,3 +65,7 @@ void Arma::Dispara(int a) {
 void Arma::setAngulo(float a) {
 	sprite.setAngle(a);
 }
+
+void Arma::setSize(float a, float b) {
+	sprite.setSize(a, b);
+}

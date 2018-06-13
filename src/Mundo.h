@@ -33,15 +33,20 @@ private:
 	int interaccion_personaje;
 public:
 	~Mundo();
-
 	void Inicializa();
+
 	void Dibuja();
 	void Mueve();
 	void MueveCamara();
 	Vector getPosicionCamara();
 	void Interacciona();
+
 	void Tecla(unsigned char key);
 	void TeclaUp(unsigned char key);
 	void TeclaEspecial(int key);
 	void TeclaEspecialUp(int key);
+
+	map getMyMap() { return myMap; }
+	int getNumeroPersonajes() { return mapa->getNumPer(); }
+	float getVidaProtagonista() { return protagonista->getVida(); }
 };

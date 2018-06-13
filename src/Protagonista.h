@@ -27,5 +27,9 @@ public:
 	void setPosicionArma(int a);
 
 	void restarVida(float daño) { vida = vida - daño; }
+	void resetVida();
+
+	void aumentaDmg() { arma->aumentaDmg(); }
+	void setArmaSize(float a, float b) { arma->setSize(a, b); }
 };
 

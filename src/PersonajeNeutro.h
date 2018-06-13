@@ -13,7 +13,7 @@ public:
 	~PersonajeNeutro();
 
 	//Funcion para interaccionar si se pulsa una tecla mientras se está en el rango;
-	void Interacciona(Vector p);		
+	virtual void Interacciona(Vector p, Personaje* p1);		
 	float getRango();
 	void setMovimientoale(float t, float y);
 	virtual void Mueve(float t);

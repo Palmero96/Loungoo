@@ -45,7 +45,7 @@ void Interaccion::Interacc_Neutro(bool a, Personaje& p, Mapa& m, bool b) {
 		if (a) {
 			if (p.posicion[m.personajes[i]->getPosicion()] <= m.personajes[i]->getRango()) {
 				//if (b) p.resetMovale();
-				m.personajes[i]->Interacciona(p.getPosicion());
+				m.personajes[i]->Interacciona(p.getPosicion(), &p);
 			}
 		}
 	}
@@ -53,7 +53,7 @@ void Interaccion::Interacc_Neutro(bool a, Personaje& p, Mapa& m, bool b) {
 
 
 bool Interaccion::Colision(Personaje* p, Disparo* d) {
-	int margen = 17;
+	int margen = 15;
 
 	if (d->posicion[p->posicion] <= margen) {
 		return true;
@@ -94,31 +94,83 @@ void Interaccion::Colision(Municion *m, Mapa& mapa) {
 		Interaccion::Colision(m, mapa.pixColision[i]);
 	}
 
-	for (int i = 0; i < mapa.numpers; i++) {
-		if (Interaccion::Colision(mapa.personajes[i], m) == true) {
-			mapa.personajes[i]->restarVida(m->daño);
+	for (int u = 0; u < mapa.numpers; u++) {
+		if (Interaccion::Colision(mapa.personajes[u], m) == true) {
+			mapa.personajes[u]->restarVida(m->daño);
 
-			if (mapa.personajes[i]->vida <= 0) {
-				mapa.agregarBonus(mapa.personajes[i]->getPosicion());
+			if (mapa.personajes[u]->vida <= 0) {
+				mapa.agregarBonus(mapa.personajes[u]->getPosicion());
 				ETSIDI::play("sounds/Moneda.mp3");
-				mapa.eliminarPersonaje(i);
+				mapa.eliminarPersonaje(u);
 			}
 		}
 	}
 }
 
 
-bool Interaccion::ataquecercano(Personaje& p, Personaje& e) {
-	int margen = 7; //margen de colision con otros personajes
+bool Interaccion::AtaqueCercano(Personaje* p, Personaje* e) {
+	int margen = 6; //margen de colision con otros personajes
 
-	Vector protagonista;
-	Vector enemigo;
-	protagonista = (p.getPosicion());
-	enemigo = (e.getPosicion());
-
-
-	if (protagonista[enemigo] < 2 * margen)
+	if (p->getPosicion()[e->getPosicion()] <= 2 * margen) {
 		return 1;
-	else
-		return 0;
+	}
+	else	return 0;
+}
+
+void Interaccion::AtaqueCercano(Personaje* p, Mapa& m) {
+	for (int i = 0; i < m.numpers; i++) {
+		if (Interaccion::AtaqueCercano(p, m.personajes[i])) {
+			p->restarVida(0.5);
+		}
+	}
+}
+
+
+void Interaccion::setVelocidad(Personaje* p1, Personaje* p2) {
+	if (p2->posicion.getx() > p1->posicion.getx()) {
+		p2->setVelocidad(-20, p2->velocidad.gety());
+	}
+	else if (p2->posicion.getx() < p1->posicion.getx()) {
+		p2->setVelocidad(20, p2->velocidad.gety());
+	}
+	else if (p2->posicion.getx() == p1->posicion.getx()) {
+		p2->setVelocidad(0, p2->velocidad.gety());
+	}
+	if (p2->posicion.gety() > p1->posicion.gety()) {
+		p2->setVelocidad(p2->velocidad.getx(), -20);
+	}
+	else if (p2->posicion.gety() < p1->posicion.gety()) {
+		p2->setVelocidad(p2->velocidad.getx(), 20);
+	}
+	else if (p2->posicion.gety() == p1->posicion.gety()) {
+		p2->setVelocidad(p2->velocidad.getx(), 0);
+	}
+}
+
+
+void Interaccion::setVelocidad(Personaje* p1, Mapa& m) {
+	for (int i = 0; i < m.numpers; i++) {
+		Interaccion::setVelocidad(p1, m.personajes[i]);
+	}
+
+	for (int u = 0; u < m.numbon; u++) {
+		if (Interaccion::Colision(p1, m.bonus[u])) {
+			p1->sumaDinero();
+			m.eliminarBonus(u);
+		}
+	}
+}
+
+void Interaccion::Colision(Mapa& mapa) {
+	for (int i = 0; i < mapa.numpers; i++) {
+		Interaccion::Colision(*mapa.personajes[i], mapa);
+	}
+}
+
+
+bool Interaccion::Colision(Personaje* p, Bonus* b) {
+	if (b->posicion[p->posicion] <= 10) {
+		return 1;
+	}
+	else return 0;
 }

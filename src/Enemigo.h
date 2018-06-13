@@ -9,7 +9,6 @@ public:
 	Enemigo(float a, float b, float c, float d, const char* path, int xa, int xb, float hp);
 	~Enemigo();
 
-	void Mueve(float t, Personaje& p);
 	bool Dispara(Personaje& p);
 };
 

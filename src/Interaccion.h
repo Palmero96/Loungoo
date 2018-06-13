@@ -14,8 +14,13 @@ public:
 	static bool Colision(Personaje* p, Disparo* d);
 	static bool Colision(Personaje* p, Municion* m);
 	static bool Colision(Disparo* d, Pixel* pix);
-	static bool ataquecercano(Personaje& p, Personaje& e);
 	static void Colision(Municion* m, Pixel* pix);
 	static void Colision(Municion* m, Mapa& mapa);
+	static void setVelocidad(Personaje* p1, Personaje* p2);
+	static void setVelocidad(Personaje* p1, Mapa& m);
+	static bool AtaqueCercano(Personaje* p, Personaje* e);
+	static void AtaqueCercano(Personaje* p, Mapa& m);
+	static void Colision(Mapa& mapa);
+	static bool Colision(Personaje* p, Bonus* b);
 };
 

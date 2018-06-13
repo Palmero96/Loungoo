@@ -38,5 +38,7 @@ public:
 	void eliminarPersonaje(int index);
 	bool agregarBonus(Vector a);
 	void eliminarBonus(int index);
+
+	int getNumPer() { return numpers; }
 };
 

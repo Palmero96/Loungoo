@@ -10,7 +10,9 @@ public:
 	Sanador(float a, float b, float c, float d, float r, const char* path, int xa, int xb);
 	~Sanador();
 
-	void Curar(Protagonista& p);
+	void Curar(Personaje* p);
 
 	void Mueve(float t);
+
+	void Interacciona(Vector p, Personaje* p1);
 };

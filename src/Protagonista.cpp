@@ -79,3 +79,7 @@ void Protagonista::setPosicionArma(int a) {
 void Protagonista::setArma(const char* a) {
 	arma = new Arma(a);
 }
+
+void Protagonista::resetVida() {
+	vida = 50;
+}

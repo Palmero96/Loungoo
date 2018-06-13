@@ -3,6 +3,7 @@
 
 Personaje::Personaje() : sprite(0, 0, 0) {
 	vida = 1;
+	dinero = 0;
 
 	sprite.setCenter(0, 0);
 	sprite.setSize(0, 0);
@@ -13,6 +14,7 @@ Personaje::Personaje() : sprite(0, 0, 0) {
 
 Personaje::Personaje(float a, float b, float c, float d, const char* path, int xa, int xb) : sprite(path, xa, xb) {
 	vida = 1;
+	dinero = 0;
 
 	sprite.setSize(a, b);
 	sprite.setCenter(a/2, b/2);

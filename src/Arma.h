@@ -27,5 +27,8 @@ public:
 	void setPosicion(Vector a);
 	int getAmmo();
 	void setAngulo(float a);
+
+	void aumentaDmg() { municion.aumentaDmg(); }
+	void setSize(float a, float b);
 };
 

@@ -20,5 +20,6 @@ public:
 	void eliminarDisparo(int index);
 	void Dibuja();
 	void Mueve(float t);
+	void aumentaDmg() { daño = daño * 2; }
 
 };

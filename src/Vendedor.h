@@ -14,5 +14,7 @@ public:
 	void mostrarArmas();
 
 	void Mueve(float t);
+	void Interacciona(Vector p, Personaje* p1);
+	void Vender(Personaje* p);
 };
 
