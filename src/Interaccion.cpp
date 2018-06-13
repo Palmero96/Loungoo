@@ -42,3 +42,40 @@ void Interaccion::Interacc_Neutro(bool a, Personaje& p, Mapa& m, bool b) {
 		}
 	}
 }
+
+
+bool Interaccion::Ataque(Personaje& p, Disparo& d) {
+	int margen = 6;
+
+	if ((d.posicion.getx() >= p.getPosicionx() - margen) && (d.posicion.getx() <= p.getPosicionx() + margen)
+		&& (d.posicion.gety() >= p.getPosiciony() - margen) && (d.posicion.gety() <= p.getPosiciony() + margen))
+		return 1;
+	else
+		return 0;
+}
+
+
+bool Interaccion::Choque(Disparo& d, Pixel& pix) {
+	if ((d.posicion.getx() >= pix.limitex1) && (d.posicion.getx() <= pix.limitex2)
+		&& (d.posicion.gety() >= pix.limitey1) && (d.posicion.gety() <= pix.limitey2))
+		return 1;
+	else
+		return 0;
+}
+
+bool Interaccion::ataquecercano(Personaje& p, Personaje& e) {
+
+
+	int margen = 7; //margen de colision con otros personajes
+
+	Vector protagonista;
+	Vector enemigo;
+	protagonista = (p.getPosicion());
+	enemigo = (e.getPosicion());
+
+
+	if (protagonista[enemigo] < 2 * margen)
+		return 1;
+	else
+		return 0;
+}
