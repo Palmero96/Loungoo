@@ -36,7 +36,7 @@ void Sanador::Mueve(float t) {
 void Sanador::Interacciona(Vector p, Personaje* p1) {
 	const char* path2 = "images/Conversacion_2.png";
 	Vector b(0, 0);
-	float zoom = 6;
+	float zoom = 4;
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  //Mediante estas dos lineas de codigo se activa el canal alpha

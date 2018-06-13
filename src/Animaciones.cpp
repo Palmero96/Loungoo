@@ -16,18 +16,18 @@ void Animaciones::resetValori() {
 
 
 void Animaciones::DibujaAnimacion1() {
-	if (i > 0 && i <= 133) {
+	if (i == 0) ETSIDI::play("sounds/Conversacion_1.mp3");
+	if (i > 0 && i <= 600) {
 		Animaciones::DibujaTextura("images/Introduccion_1.png");
 	}
-
-	else if (i > 133 && i <= 273) {
+	if (i == 600) ETSIDI::play("sounds/Conversacion_1_2.mp3");
+	else if (i > 600 && i <= 1200) {
 		Animaciones::DibujaTextura("images/Introduccion_2.png");
 	}
-
-	if (i > 273) {
+	if (i == 1200) ETSIDI::play("sounds/Conversacion_1_2.mp3");
+	if (i > 1200) {
 		Animaciones::DibujaTextura("images/Introduccion_3.png");
 	}
-
 	i++;
 }
 
@@ -46,6 +46,7 @@ void Animaciones::DibujaAnimacion2() {
 
 
 void Animaciones::DibujaAnimacion3() {
+	if (i == 0) ETSIDI::play("sounds/Conversacion_3.mp3");
 	if (i < 160) {
 		Animaciones::DibujaTextura("images/Final_1.png");
 	}

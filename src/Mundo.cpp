@@ -63,7 +63,7 @@ void Mundo::Mueve() {
 			*mapa += new Enemigo(20, 20, 40, 30, "images/Enemigo_1.png", 3, 4, 100);
 			*mapa += new Enemigo(20, 20, 0, 30, "images/Enemigo_2.png", 3, 4, 50);
 			*mapa += new Enemigo(20, 20, -20, 30, "images/Enemigo_1.png", 3, 4, 100);
-			*mapa += new Enemigo(30, 30, 120, 120, "images/Enemigo_2.png", 3, 4, 1500);
+			*mapa += new Enemigo(30, 30, 120, 120, "images/Enemigo_2.png", 3, 4, 1000);
 		}
 	}
 
