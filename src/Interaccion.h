@@ -7,9 +7,7 @@
 
 class Interaccion {
 
-private:
-    Vector protagonista;
-	Vector enemigo;
+
 public:
 	static void Colision(Personaje& p, Pixel& pix);
 	static void Colision(Personaje& p, Mapa& m);

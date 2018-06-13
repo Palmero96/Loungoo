@@ -59,11 +59,13 @@ bool Interaccion::ataquecercano(Personaje& p, Personaje& e) {
 
 	int margen = 7; //margen de colision con otros personajes
 
-    protagonista= (p.getPosicion());
+	Vector protagonista;
+	Vector enemigo;
+	protagonista = (p.getPosicion());
 	enemigo = (e.getPosicion());
 
 
-	if (protagonista[enemigo] < 2*margen)
+	if (protagonista[enemigo] < 2 * margen)
 		return 1;
 	else
 		return 0;
