@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{3086D8EB-AC15-411A-AC0A-71D4155AD5B9}</ProjectGuid>
     <RootNamespace>Loungoo</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -134,6 +134,7 @@
     <ClCompile Include="src\Bonus.cpp" />
     <ClCompile Include="src\Coordinador.cpp" />
     <ClCompile Include="src\Disparo.cpp" />
+    <ClCompile Include="src\Enemigo.cpp" />
     <ClCompile Include="src\Interaccion.cpp" />
     <ClCompile Include="src\Loungoo.cpp" />
     <ClCompile Include="src\Mapa.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="src\Bonus.h" />
     <ClInclude Include="src\Coordinador.h" />
     <ClInclude Include="src\Disparo.h" />
+    <ClInclude Include="src\Enemigo.h" />
     <ClInclude Include="src\Interaccion.h" />
     <ClInclude Include="src\Mapa.h" />
     <ClInclude Include="src\Movimiento.h" />
