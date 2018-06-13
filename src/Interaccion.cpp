@@ -55,13 +55,17 @@ bool Interaccion::Ataque(Personaje& p, Disparo& d) {
 }
 
 
-bool Interaccion::Choque(Disparo& d, Pixel& pix) {
+bool Interaccion::Colision(Disparo& d, Pixel& pix) {
 	if ((d.posicion.getx() >= pix.limitex1) && (d.posicion.getx() <= pix.limitex2)
 		&& (d.posicion.gety() >= pix.limitey1) && (d.posicion.gety() <= pix.limitey2))
 		return 1;
 	else
 		return 0;
 }
+
+
+
+
 
 bool Interaccion::ataquecercano(Personaje& p, Personaje& e) {
 
