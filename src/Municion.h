@@ -8,6 +8,7 @@ private:
 	Disparo * municion[AMMO];
 	int contador;
 
+	friend class Interaccion;
 public:
 	Municion();
 	~Municion();

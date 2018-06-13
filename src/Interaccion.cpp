@@ -64,12 +64,14 @@ bool Interaccion::Colision(Disparo& d, Pixel& pix) {
 }
 
 
-
+/*void Interaccion::Colision(Municion &m, Pixel& pix) {
+	for (int i = 0; i < m.getContador; i++) {
+		if (Interaccion::Colision)
+	}
+}*/
 
 
 bool Interaccion::ataquecercano(Personaje& p, Personaje& e) {
-
-
 	int margen = 7; //margen de colision con otros personajes
 
 	Vector protagonista;
