@@ -6,9 +6,9 @@ Enemigo::Enemigo() : Protagonista() {
 }
 
 
-Enemigo::Enemigo(float a, float b, float c, float d, const char* path, int xa, int xb)
+Enemigo::Enemigo(float a, float b, float c, float d, const char* path, int xa, int xb, float hp)
 	: Protagonista (a, b, c, d, path, xa, xb) {
-	vida = 30;
+	vida = hp;
 }
 
 Enemigo::~Enemigo() {

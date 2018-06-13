@@ -21,8 +21,8 @@ Protagonista::Protagonista(float a, float b, float c, float d, const char* path,
 	posicion_arma = 0;
 }
 
-Protagonista::~Protagonista()
-{
+Protagonista::~Protagonista() {
+
 }
 
 void Protagonista::Dibuja() {

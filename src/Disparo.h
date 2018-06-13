@@ -6,7 +6,6 @@ using ETSIDI::SpriteSequence;
 
 class Disparo {
 private:
-	float daño;
 	Vector velocidad;
 	Vector posicion;
 	float vel;							//Valor modular del vector velocidad
@@ -16,7 +15,7 @@ private:
 	friend class Interaccion;
 public:
 	Disparo();
-	Disparo(float a, float c, const char* path);			//Para la posterior creación de disparos de diferentes características (Dimensiones) y (Daño)
+	Disparo(float a, const char* path);			//Para la posterior creación de disparos de diferentes características (Dimensiones) y (Daño)
 	Disparo(Vector a, const char* path);
 	~Disparo();
 

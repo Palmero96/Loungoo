@@ -36,7 +36,7 @@ public:
 	bool operator += (Personaje* p);
 
 	void eliminarPersonaje(int index);
-	void agregarBonus(Vector a);
+	bool agregarBonus(Vector a);
 	void eliminarBonus(int index);
 };
 

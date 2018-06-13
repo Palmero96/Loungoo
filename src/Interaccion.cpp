@@ -61,12 +61,13 @@ bool Interaccion::Colision(Personaje* p, Disparo* d) {
 	else return false;
 }
 
-void Interaccion::Colision(Personaje* p, Municion* m) {
+bool Interaccion::Colision(Personaje* p, Municion* m) {
 	for (int i = 0; i < m->contador; i++) {
 		if (Interaccion::Colision(p, m->municion[i])) {
 			m->eliminarDisparo(i);
-			p->restarVida(m->municion[i]->daño);
+			return true;
 		}
+		else return false;
 	}
 }
 
@@ -94,11 +95,14 @@ void Interaccion::Colision(Municion *m, Mapa& mapa) {
 	}
 
 	for (int i = 0; i < mapa.numpers; i++) {
-		Interaccion::Colision(mapa.personajes[i], m);
+		if (Interaccion::Colision(mapa.personajes[i], m) == true) {
+			mapa.personajes[i]->restarVida(m->daño);
 
-		if (mapa.personajes[i]->vida <= 0) {
-			mapa.agregarBonus(mapa.personajes[i]->posicion);
-			mapa.eliminarPersonaje(i);
+			if (mapa.personajes[i]->vida <= 0) {
+				mapa.agregarBonus(mapa.personajes[i]->getPosicion());
+				ETSIDI::play("sounds/Moneda.mp3");
+				mapa.eliminarPersonaje(i);
+			}
 		}
 	}
 }

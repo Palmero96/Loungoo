@@ -26,6 +26,6 @@ public:
 	void setArma(const char* a);
 	void setPosicionArma(int a);
 
-	void restarVida(float a) { vida -= a; }
+	void restarVida(float daño) { vida = vida - daño; }
 };
 

@@ -58,12 +58,12 @@ void Mundo::Mueve() {
 			mapa = new Mapa("sources/Mapa2.txt", "images/Mapa2.png", "images/Mapa2_2.png");
 			protagonista->setPosicion(0, -220);
 
-			*mapa += new Enemigo(20, 20, -60, 30, "images/Mono1.png", 6, 4);
+			/**mapa += new Enemigo(20, 20, -60, 30, "images/Mono1.png", 6, 4);
 			*mapa += new Enemigo(20, 20, -40, 30, "images/Mono2.png", 6, 4);
 			*mapa += new Enemigo(20, 20, 40, 30, "images/Mono1.png", 6, 4);
-			*mapa += new Enemigo(20, 20, 0, 30, "images/Mono2.png", 6, 4);
-			*mapa += new Enemigo(20, 20, -20, 30, "images/Mono1.png", 6, 4);
-			*mapa += new Enemigo(20, 20, 80, 30, "images/Mono2.png", 6, 4);
+			*mapa += new Enemigo(20, 20, 0, 30, "images/Mono2.png", 6, 4);*/
+			*mapa += new Enemigo(20, 20, -20, 30, "images/Mono1.png", 6, 4, 100);
+			*mapa += new Enemigo(20, 20, 120, 120, "images/Mono2.png", 6, 4, 50);
 		}
 	}
 

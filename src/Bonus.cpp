@@ -2,7 +2,7 @@
 
 
 
-Bonus::Bonus(Vector pos) : sprite("images/Moneda.png") {
+Bonus::Bonus(Vector pos) : sprite("images/Moneda.png", pos.getx(), pos.gety()) {
  posicion = pos;
 
  sprite.setSize(7, 7);

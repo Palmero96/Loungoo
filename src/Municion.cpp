@@ -3,6 +3,7 @@
 
 
 Municion::Municion() {
+	daño = 5;
 	int contador = 0;
 	for (int i = 0; i < AMMO; i++) {
 		municion[i] = 0;

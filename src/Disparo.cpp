@@ -5,17 +5,13 @@ Disparo::Disparo() : sprite(0, 0, 0){
 
 	sprite.setSize(0, 0);
 	sprite.setCenter(0, 0);
-	
-	daño = 10;
 	velocidad.setxy(0, vel);
 	vel = 100;
 }
 
-Disparo::Disparo(float a, float c, const char* path) : sprite(path, 4, 1, 20){
+Disparo::Disparo(float a, const char* path) : sprite(path, 4, 1, 20){
 	sprite.setCenter(1, 4.5/2);
 	sprite.setSize(a, 2.38*a);
-
-	daño = c;
 	velocidad.setxy(0, vel);
 	vel = 100;
 }
@@ -26,7 +22,6 @@ Disparo::Disparo(Vector a, const char* path) : sprite(path, 4, 1, 20){
 
 	posicion = a;
 
-	daño = 10;
 	velocidad.setxy(0, vel);
 	vel = 100;
 }

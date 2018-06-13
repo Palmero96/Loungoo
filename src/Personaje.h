@@ -37,6 +37,6 @@ public:
 	virtual void Interacciona(Vector p) {}
 	virtual bool Dispara() { return false; }
 
-	virtual void restarVida(float a) {}
+	virtual void restarVida(float daño) { vida = 1; }
 };
 

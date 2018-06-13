@@ -7,6 +7,7 @@ class Municion {
 private:
 	Disparo * municion[AMMO];
 	int contador;
+	float daño;
 
 	friend class Interaccion;
 public:

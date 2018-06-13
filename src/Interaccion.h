@@ -12,7 +12,7 @@ public:
 	static void Colision(Protagonista& p, Mapa& m);
 	static void Interacc_Neutro(bool a, Personaje& p, Mapa& m, bool b);
 	static bool Colision(Personaje* p, Disparo* d);
-	static void Colision(Personaje* p, Municion* m);
+	static bool Colision(Personaje* p, Municion* m);
 	static bool Colision(Disparo* d, Pixel* pix);
 	static bool ataquecercano(Personaje& p, Personaje& e);
 	static void Colision(Municion* m, Pixel* pix);

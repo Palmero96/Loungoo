@@ -133,9 +133,12 @@ void Mapa::eliminarPersonaje(int index) {
 }
 
 
-void Mapa::agregarBonus(Vector a) {
-	bonus[numbon] = new Bonus(a);
-	numbon++;
+bool Mapa::agregarBonus(Vector a) {
+	if (numbon < 10) {
+		bonus[numbon++] = new Bonus(a);
+		return true;
+	}
+	else return false;
 }
 
 
