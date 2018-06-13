@@ -7,7 +7,6 @@ void Mundo::Inicializa() {
 	glClear(GL_COLOR_BUFFER_BIT);				//Limpia el buffer del background
 	zoom = 2.2;
 
-
 	myMap = MAPA1;
 
 	if (myMap == MAPA1) {
