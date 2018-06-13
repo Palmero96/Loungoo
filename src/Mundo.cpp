@@ -5,19 +5,29 @@
 void Mundo::Inicializa() {
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);		//Establece el color de fondo como negro opaco
 	glClear(GL_COLOR_BUFFER_BIT);				//Limpia el buffer del background
-
 	zoom = 2.2;
-	vista.setxy(0, 0);
-	protagonista = new Protagonista(20, 20, 0, 0, "images/Protagonista.png", 3, 4);
-	protagonista->setVelocidad_modulo(75);
 
-	mapa = new Mapa("sources/Mapa1.txt", "images/Mapa1.png", "images/Mapa1_2.png");
+	myMap = MAPA1;
 
-	glOrtho((vista.getx() - 320) / zoom, (vista.getx() + 320) / zoom, (vista.gety() - 240) / zoom, (vista.gety() + 240) / zoom, -1, 1);
+	if (myMap == MAPA1) {
+		vista.setxy(0, 0);
+		protagonista = new Protagonista(20, 20, 0, 0, "images/Protagonista.png", 3, 4);
+		protagonista->setVelocidad_modulo(75);
+
+		mapa = new Mapa("sources/Mapa1.txt", "images/Mapa1.png", "images/Mapa1_2.png");
+
+		glOrtho((vista.getx() - 320) / zoom, (vista.getx() + 320) / zoom, (vista.gety() - 240) / zoom, (vista.gety() + 240) / zoom, -1, 1);
+	}
 }
 
+
+Mundo::~Mundo() {
+	delete mapa;
+	delete protagonista;
+}
+
+
 void Mundo::Dibuja() {
-	
 	mapa->Dibuja();
 	protagonista->Dibuja();
 	mapa->Dibuja2();
@@ -30,7 +40,26 @@ void Mundo::Mueve() {
 
 	Mundo::Interacciona();
 	Mundo::MueveCamara();
+
+	if (myMap == MAPA1) {
+		if (protagonista->getPosiciony() >= 120) {
+			myMap = MAPA2;
+			delete mapa;
+			mapa = new Mapa("sources/Mapa2.txt", "images/Mapa2.png", "images/Mapa2_2.png");
+			protagonista->setPosicion(0, -220);
+		}
+	}
+
+	else if (myMap == MAPA2) {
+		if (protagonista->getPosiciony() <= -240) {
+			myMap = MAPA1;
+			delete mapa;
+			mapa = new Mapa("sources/Mapa1.txt", "images/Mapa1.png", "images/Mapa1_2.png");
+			protagonista->setPosicion(0, 90);
+		}
+	}
 }
+
 
 void Mundo::MueveCamara() {
 	glMatrixMode(GL_MODELVIEW);

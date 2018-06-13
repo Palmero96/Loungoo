@@ -13,6 +13,7 @@ Mapa::Mapa(const char* mapa, const char* path1, const char* path2) {
 	colM = 0;
 
 	numpixels = 0;
+	numpers = 0;
 
 	ifstream archivo;
 	string texto;
@@ -55,9 +56,21 @@ Mapa::Mapa(const char* mapa, const char* path1, const char* path2) {
 }
 
 
-
 Mapa::~Mapa() {
+	for (int i = 0; i < numpers; i++) {
+		delete personajes[i];
+	}
+	numpers = 0;
+
+	delete suelo[1];
+	delete suelo[2];
+
+	for (int i = 0; i < numpixels; i++) {
+		delete pixColision[i];
+	}
+	numpixels = 0;
 }
+
 
 void Mapa::Dibuja() {
 	suelo[0]->Dibuja();

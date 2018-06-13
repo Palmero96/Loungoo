@@ -57,20 +57,6 @@ void Animaciones::DibujaAnimacion3() {
 	i++;
 }
 
-
-/*void Animaciones::DibujaConversacion(int a, int b) {
-	if (a == 0) {
-		if (b == 0) {
-			Animaciones::DibujaTextura("images/Conversacion_1.png");
-		}
-		else if (b == 1) {
-			Animaciones::DibujaTextura("images/Conversacion_1_2.png");
-		}
-	}
-}*/
-
-
-
 void Animaciones::DibujaTextura(const char* path) {
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  //Mediante estas dos lineas de codigo se activa el canal alpha

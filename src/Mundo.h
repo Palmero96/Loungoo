@@ -18,12 +18,17 @@
 
 class Mundo {
 private:
+	enum map { MAPA1, MAPA2 };
+
+	map myMap;
 	float zoom;
 	Vector vista;
 	Protagonista* protagonista;
 	Movimiento movimiento;	
 	Mapa* mapa;
 public:
+	~Mundo();
+
 	void Inicializa();
 	void Dibuja();
 	void Mueve();

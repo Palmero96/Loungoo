@@ -10,6 +10,7 @@ private:
 	PersonajeNeutro* personajes[10];
 	Pixel** pixColision;
 	int numpixels;
+	int numpers;
 
 	int colM;
 	int filM;

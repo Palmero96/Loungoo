@@ -19,6 +19,6 @@ PersonajeNeutro::PersonajeNeutro(float a, float b, float c, float d, float r, co
 }
 
 
-PersonajeNeutro::~PersonajeNeutro()
-{
+PersonajeNeutro::~PersonajeNeutro() {
+
 }
