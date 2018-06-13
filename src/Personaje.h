@@ -30,5 +30,8 @@ public:
 	
 	void setVelocidad_modulo(float a);
 	float getVelocidad_modulo();
+
+	virtual float getRango() { return 0; }
+	virtual void Interacciona(Vector p) {}
 };
 

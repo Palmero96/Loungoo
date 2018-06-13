@@ -5,7 +5,9 @@
 
 
 void Interaccion::Colision(Personaje& p, Pixel& pix) {
+
 	int margen = 8; //margen de colision con paredes
+
 	int margen2 = 8.5;
 
 	if ((p.getPosicionx() + margen) >= pix.limitex1 && (p.getPosicionx() + margen) <= pix.limitex2
@@ -31,6 +33,8 @@ void Interaccion::Colision(Personaje& p, Mapa& m) {
 		Interaccion::Colision(p, *m.pixColision[i]);
 	}
 }
+
+
 bool Interaccion::Ataque(Personaje& p, Disparo& d) {
 	int margen = 6;
 
@@ -49,9 +53,6 @@ bool Interaccion::Choque(Disparo& d, Pixel& pix) {
 		return 1;
 	else
 		return 0;
-
-
-
 }
 
 bool Interaccion::ataquecercano(Personaje& p, Personaje& e) {
@@ -67,8 +68,15 @@ bool Interaccion::ataquecercano(Personaje& p, Personaje& e) {
 		return 1;
 	else
 		return 0;
+}
 
-
-
-
+void Interaccion::Interacc_Neutro(bool a, Personaje& p, Mapa& m, bool b) {
+	for (int i = 0; i < m.numpers; i++) {
+		if (a) {
+			if (p.posicion[m.personajes[i]->getPosicion()] <= m.personajes[i]->getRango()) {
+				//if (b) p.resetMovale();
+				m.personajes[i]->Interacciona(p.getPosicion());
+			}
+		}
+	}
 }

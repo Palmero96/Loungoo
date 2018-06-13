@@ -1,6 +1,8 @@
 #pragma once
 #include "Vector.h"
 #include "Protagonista.h"
+#include "Sanador.h"
+#include "Vendedor.h"
 #include "Movimiento.h"
 #include "Mapa.h"
 
@@ -18,16 +20,24 @@
 
 class Mundo {
 private:
+	enum map { MAPA1, MAPA2 };
+
+	map myMap;
 	float zoom;
 	Vector vista;
 	Protagonista* protagonista;
 	Movimiento movimiento;	
 	Mapa* mapa;
+
+	int interaccion_personaje;
 public:
+	~Mundo();
+
 	void Inicializa();
 	void Dibuja();
 	void Mueve();
 	void MueveCamara();
+	Vector getPosicionCamara();
 	void Interacciona();
 	void Tecla(unsigned char key);
 	void TeclaUp(unsigned char key);

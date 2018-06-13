@@ -129,8 +129,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Animaciones.cpp" />
     <ClCompile Include="src\Arma.cpp" />
     <ClCompile Include="src\Bonus.cpp" />
+    <ClCompile Include="src\Coordinador.cpp" />
     <ClCompile Include="src\Disparo.cpp" />
     <ClCompile Include="src\Enemigo.cpp" />
     <ClCompile Include="src\Interaccion.cpp" />
@@ -143,12 +145,16 @@
     <ClCompile Include="src\PersonajeNeutro.cpp" />
     <ClCompile Include="src\Pixel.cpp" />
     <ClCompile Include="src\Protagonista.cpp" />
+    <ClCompile Include="src\Sanador.cpp" />
     <ClCompile Include="src\Suelo.cpp" />
     <ClCompile Include="src\Vector.cpp" />
+    <ClCompile Include="src\Vendedor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Animaciones.h" />
     <ClInclude Include="src\Arma.h" />
     <ClInclude Include="src\Bonus.h" />
+    <ClInclude Include="src\Coordinador.h" />
     <ClInclude Include="src\Disparo.h" />
     <ClInclude Include="src\Enemigo.h" />
     <ClInclude Include="src\Interaccion.h" />
@@ -160,8 +166,10 @@
     <ClInclude Include="src\PersonajeNeutro.h" />
     <ClInclude Include="src\Pixel.h" />
     <ClInclude Include="src\Protagonista.h" />
+    <ClInclude Include="src\Sanador.h" />
     <ClInclude Include="src\Suelo.h" />
     <ClInclude Include="src\Vector.h" />
+    <ClInclude Include="src\Vendedor.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\glut32.lib" />
