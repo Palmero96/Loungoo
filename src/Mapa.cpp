@@ -13,6 +13,7 @@ Mapa::Mapa(const char* mapa, const char* path1, const char* path2) {
 	colM = 0;
 
 	numpixels = 0;
+	numpers = 0;
 
 	ifstream archivo;
 	string texto;
@@ -55,12 +56,28 @@ Mapa::Mapa(const char* mapa, const char* path1, const char* path2) {
 }
 
 
-
 Mapa::~Mapa() {
+	for (int i = 0; i < numpers; i++) {
+		delete personajes[i];
+	}
+	numpers = 0;
+
+	delete suelo[1];
+	delete suelo[2];
+
+	for (int i = 0; i < numpixels; i++) {
+		delete pixColision[i];
+	}
+	numpixels = 0;
 }
+
 
 void Mapa::Dibuja() {
 	suelo[0]->Dibuja();
+
+	for (int i = 0; i < numpers; i++) {
+		personajes[i]->Dibuja();
+	}
 }
 
 void Mapa::Dibuja2() {
@@ -72,6 +89,13 @@ void Mapa::Dibuja2() {
 }
 
 
+void Mapa::Mueve(float t) {
+	for (int i = 0; i < numpers; i++) {
+		personajes[i]->Mueve(t);
+	}
+}
+
+
 void Mapa::setPixels() {
 	for (int i = 0; i < colM; i++) {
 		for (int u = 0; u < filM; u++) {
@@ -79,5 +103,26 @@ void Mapa::setPixels() {
 				pixColision[numpixels++] = new Pixel(-(suelo[0]->getAnchotext()/2) + i*16, suelo[0]->getAltotext()/2 - 16 - u*16);
 			}
 		}
+	}
+}
+
+
+bool Mapa::operator += (Personaje* p) {
+	if (numpers < 10) {
+		personajes[numpers++] = p;
+		return true;
+	}
+	else return false;
+}
+
+
+void Mapa::eliminarPersonaje(int index) {
+	if ((index < 0) || (index >= numpers)) {
+		return;
+	}
+	delete personajes[index];
+	numpers--;
+	for (int i = index; i < numpers; i++) {
+		personajes[i] = personajes[i + 1];
 	}
 }

@@ -2,6 +2,8 @@
 
 
 Personaje::Personaje() : sprite(0, 0, 0) {
+	vida = 1;
+
 	sprite.setCenter(0, 0);
 	sprite.setSize(0, 0);
 
@@ -10,6 +12,8 @@ Personaje::Personaje() : sprite(0, 0, 0) {
 }
 
 Personaje::Personaje(float a, float b, float c, float d, const char* path, int xa, int xb) : sprite(path, xa, xb) {
+	vida = 1;
+
 	sprite.setSize(a, b);
 	sprite.setCenter(a/2, b/2);
 
@@ -47,22 +51,27 @@ void Personaje::Dibuja() {
 	glPopMatrix();
 }
 
+
 void Personaje::setPosicion(float a, float b) {
 	posicion.setxy(a, b);
 }
 
+
 void Personaje::setVelocidad(float a, float b) {
 	velocidad.setxy(a, b);
 }
+
 
 void Personaje::Mueve(float t) {
 	posicion = velocidad * t + posicion;
 	sprite.loop();
 }
 
+
 float Personaje::getPosicionx() {
 	return posicion.getx();
 }
+
 
 float Personaje::getPosiciony() {
 	return posicion.gety();
@@ -76,3 +85,4 @@ void Personaje::setVelocidad_modulo(float a) {
 float Personaje::getVelocidad_modulo() {
 	return velocidad_modulo;
 }
+

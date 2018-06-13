@@ -5,8 +5,8 @@
 class Movimiento {
 private:
 	bool inputs[numero_teclas];
+	bool interaccion;
 	Vector mov_unitario;
-
 public:
 	Movimiento();
 	~Movimiento();
@@ -14,4 +14,6 @@ public:
 	void setInputs(int a, bool b);
 	Vector getMov_unitario();
 	bool disparo_on();
+	bool getInteraccion();
+	void setInteraccion(bool a);
 };

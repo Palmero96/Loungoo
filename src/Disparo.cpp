@@ -81,10 +81,3 @@ void Disparo::setVelocidad(int a) {
 		break;
 	}
 }
-float Disparo::getPosicionx() {
-	return posicion.getx();
-}
-
-float Disparo::getPosiciony() {
-	return posicion.gety();
-}

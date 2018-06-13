@@ -13,6 +13,8 @@ private:
 	bool orientacionx, orientaciony;
 
 	Sprite sprite;
+
+	friend class Interaccion;
 public:
 	Arma();
 	Arma(const char* a);

@@ -1,18 +1,18 @@
 #include "Enemigo.h"
 
 
-#include "Protagonista.h"
-
-
+Enemigo::Enemigo() : Protagonista() {
+	vida = 30;
+}
 
 
 Enemigo::Enemigo(float a, float b, float c, float d, const char* path, int xa, int xb)
-	: Personaje(a, b, c, d, path, xa, xb) {
-	
+	: Protagonista (a, b, c, d, path, xa, xb) {
+	vida = 30;
 }
 
-void Enemigo::Dibuja() {
-	Personaje::Dibuja();
+Enemigo::~Enemigo() {
+
 }
 
 void Enemigo::Mueve(float t, Personaje& p)
@@ -26,40 +26,16 @@ void Enemigo::Mueve(float t, Personaje& p)
 	if (p.getPosiciony() > posicion.gety())
         setVelocidad(0, -0.7);
 	Personaje::Mueve(t);
-	
 }
 
 bool Enemigo::Dispara(Personaje& p) {
-
-	Vector aux;
 	float ret;
-	aux.setxy(p.getPosicionx()- posicion.getx(), p.getPosiciony()- posicion.gety());
-	ret = sqrt(aux.getx() * aux.getx() + aux.gety()*aux.gety());
-	return ret;
+	ret = posicion[p.getPosicion()];
 
-
-	if (ret<50)
+	if (ret < 50) {
 		return 1;
-	else 
+	}
+	else {
 		return 0;
-
-
-}
-
-
-
-
-
-void Enemigo::setPosicion(float a, float b) {
-	Personaje::setPosicion(a, b);
-}
-
-
-Enemigo::Enemigo()
-{
-}
-
-
-Enemigo::~Enemigo()
-{
+	}
 }

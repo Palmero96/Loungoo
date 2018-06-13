@@ -12,6 +12,8 @@ private:
 	float vel;							//Valor modular del vector velocidad
 
 	SpriteSequence sprite;
+
+	friend class Interaccion;
 public:
 	Disparo();
 	Disparo(float a, float c, const char* path);			//Para la posterior creación de disparos de diferentes características (Dimensiones) y (Daño)
@@ -22,9 +24,5 @@ public:
 	void Mueve(float t);
 	void setPosicion(Vector a);
 	void setVelocidad(int a);			//Se ursará de igual forma que el atributo "posicion_arma" de la clase "personaje"
-	float Disparo::getPosicionx();
-	float Disparo::getPosiciony();
-	
-
 };
 

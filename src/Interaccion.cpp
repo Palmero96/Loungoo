@@ -3,9 +3,8 @@
 
 
 
-
 void Interaccion::Colision(Personaje& p, Pixel& pix) {
-	int margen = 8; //margen de colision con paredes
+	int margen = 8;
 	int margen2 = 8.5;
 
 	if ((p.getPosicionx() + margen) >= pix.limitex1 && (p.getPosicionx() + margen) <= pix.limitex2
@@ -31,32 +30,80 @@ void Interaccion::Colision(Personaje& p, Mapa& m) {
 		Interaccion::Colision(p, *m.pixColision[i]);
 	}
 }
-bool Interaccion::Ataque(Personaje& p, Disparo& d) {
-	int margen = 6;
 
-	if ((d.getPosicionx() >= p.getPosicionx() - margen) && (d.getPosicionx() <= p.getPosicionx() + margen)
-		&& (d.getPosiciony() >= p.getPosiciony() - margen) && (d.getPosiciony() <= p.getPosiciony() + margen))
+
+void Interaccion::Colision(Protagonista& p, Mapa&m) {
+	Interaccion::Colision(&p.arma->municion, m);
+	Personaje* aux = &p;
+	Interaccion::Colision(*aux, m);
+}
+
+
+void Interaccion::Interacc_Neutro(bool a, Personaje& p, Mapa& m, bool b) {
+	for (int i = 0; i < m.numpers; i++) {
+		if (a) {
+			if (p.posicion[m.personajes[i]->getPosicion()] <= m.personajes[i]->getRango()) {
+				//if (b) p.resetMovale();
+				m.personajes[i]->Interacciona(p.getPosicion());
+			}
+		}
+	}
+}
+
+
+bool Interaccion::Colision(Personaje* p, Disparo* d) {
+	int margen = 10;
+
+	if (d->posicion[p->posicion] <= margen) {
+		return true;
+	}
+	else return false;
+}
+
+void Interaccion::Colision(Personaje* p, Municion* m) {
+	for (int i = 0; i < m->contador; i++) {
+		if (Interaccion::Colision(p, m->municion[i])) {
+			m->eliminarDisparo(i);
+			p->restarVida(m->municion[i]->daño);
+		}
+	}
+}
+
+
+bool Interaccion::Colision(Disparo* d, Pixel* pix) {
+	if ((d->posicion.getx() >= pix->limitex1) && (d->posicion.getx() <= pix->limitex2)
+		&& (d->posicion.gety() >= pix->limitey1) && (d->posicion.gety() <= pix->limitey2))
 		return 1;
 	else
 		return 0;
 }
 
 
-bool Interaccion::Choque(Disparo& d, Pixel& pix) {
-
-	if ((d.getPosicionx() >= pix.limitex1) && (d.getPosicionx() <= pix.limitex2)
-		&& (d.getPosiciony() >= pix.limitey1) && (d.getPosiciony() <= pix.limitey2))
-		return 1;
-	else
-		return 0;
-
-
-
+void Interaccion::Colision(Municion* m, Pixel* pix) {
+	for (int i = 0; i < m->contador; i++) {
+		if (Interaccion::Colision(m->municion[i], pix)) {
+			m->eliminarDisparo(i);
+		}
+	}
 }
+
+void Interaccion::Colision(Municion *m, Mapa& mapa) {
+	for (int i = 0; i < mapa.numpixels; i++) {
+		Interaccion::Colision(m, mapa.pixColision[i]);
+	}
+
+	for (int i = 0; i < mapa.numpers; i++) {
+		Interaccion::Colision(mapa.personajes[i], m);
+
+		if (mapa.personajes[i]->vida <= 0) {
+			//mapa.agregarBonus(mapa.personajes[i]->posicion);
+			mapa.eliminarPersonaje(i);
+		}
+	}
+}
+
 
 bool Interaccion::ataquecercano(Personaje& p, Personaje& e) {
-
-
 	int margen = 7; //margen de colision con otros personajes
 
 	Vector protagonista;
@@ -69,8 +116,4 @@ bool Interaccion::ataquecercano(Personaje& p, Personaje& e) {
 		return 1;
 	else
 		return 0;
-
-
-
-
 }

@@ -8,6 +8,7 @@ private:
 	Disparo * municion[AMMO];
 	int contador;
 
+	friend class Interaccion;
 public:
 	Municion();
 	~Municion();
@@ -15,6 +16,8 @@ public:
 	int getContador();
 	void setContador(int a);
 	bool agregar(Disparo *d);
+	void eliminarDisparo(int index);
 	void Dibuja();
 	void Mueve(float t);
+
 };

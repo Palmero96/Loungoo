@@ -3,6 +3,8 @@
 
 
 Protagonista::Protagonista() : Personaje() {
+	vida = 50;
+
 	setArma("images/Arma1.png");
 	arma->setPosicion(posicion + vect_desfase);
 	desfase = 10;
@@ -11,6 +13,8 @@ Protagonista::Protagonista() : Personaje() {
 
 Protagonista::Protagonista(float a, float b, float c, float d, const char* path, int xa, int xb) 
 : Personaje(a, b, c, d, path, xa, xb) {
+	vida = 50;
+
 	setArma("images/Arma1.png");
 	arma->setPosicion(posicion + vect_desfase);
 	desfase = 10;

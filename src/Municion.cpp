@@ -33,14 +33,28 @@ bool Municion::agregar(Disparo *d) {
 	return true;
 }
 
+
 void Municion::Dibuja() {
 	for (int i = 0; i < contador; i++) {
 		municion[i]->Dibuja();
 	}
 }
 
+
 void Municion::Mueve(float t) {
 	for (int i = 0; i < contador; i++) {
 		municion[i]->Mueve(t);
+	}
+}
+
+
+void Municion::eliminarDisparo(int index) {
+	if ((index < 0) || (index >= contador)) {
+		return;
+	}
+	delete municion[index];
+	contador--;
+	for (int i = index; i < contador; i++) {
+		municion[i] = municion[i + 1];
 	}
 }

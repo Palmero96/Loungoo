@@ -58,3 +58,11 @@ bool Movimiento::disparo_on() {
 	}
 	return false;
 }
+
+bool Movimiento::getInteraccion() {
+	return interaccion;
+}
+
+void Movimiento::setInteraccion(bool a) {
+	interaccion = a;
+}

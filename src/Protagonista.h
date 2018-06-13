@@ -10,6 +10,8 @@ private:
 								//										2 --> izquierda
 								//										3 --> abajo
 	Vector vect_desfase;
+
+	friend class Interaccion;
 public:
 	Protagonista();
 	Protagonista(float a, float b, float c, float d, const char* path, int xa, int xb);
@@ -17,11 +19,13 @@ public:
 
 	void Dibuja();
 	void Mueve(float t);
-	bool Dispara();
+	virtual bool Dispara();
 
 	void setPosicion(float a, float b);
 	void setVect_desfase();
 	void setArma(const char* a);
 	void setPosicionArma(int a);
+
+	void restarVida(float a) { vida -= a; }
 };
 
