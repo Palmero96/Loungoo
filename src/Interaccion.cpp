@@ -1,4 +1,5 @@
 #include "Interaccion.h"
+#include "ETSIDI.h"
 #include <cmath>
 
 
@@ -52,7 +53,7 @@ void Interaccion::Interacc_Neutro(bool a, Personaje& p, Mapa& m, bool b) {
 
 
 bool Interaccion::Colision(Personaje* p, Disparo* d) {
-	int margen = 10;
+	int margen = 17;
 
 	if (d->posicion[p->posicion] <= margen) {
 		return true;
@@ -96,7 +97,7 @@ void Interaccion::Colision(Municion *m, Mapa& mapa) {
 		Interaccion::Colision(mapa.personajes[i], m);
 
 		if (mapa.personajes[i]->vida <= 0) {
-			//mapa.agregarBonus(mapa.personajes[i]->posicion);
+			mapa.agregarBonus(mapa.personajes[i]->posicion);
 			mapa.eliminarPersonaje(i);
 		}
 	}

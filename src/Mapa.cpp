@@ -14,6 +14,7 @@ Mapa::Mapa(const char* mapa, const char* path1, const char* path2) {
 
 	numpixels = 0;
 	numpers = 0;
+	numbon = 0;
 
 	ifstream archivo;
 	string texto;
@@ -78,6 +79,10 @@ void Mapa::Dibuja() {
 	for (int i = 0; i < numpers; i++) {
 		personajes[i]->Dibuja();
 	}
+
+	for (int i = 0; i < numbon; i++) {
+		bonus[i]->Dibuja();
+	}
 }
 
 void Mapa::Dibuja2() {
@@ -124,5 +129,23 @@ void Mapa::eliminarPersonaje(int index) {
 	numpers--;
 	for (int i = index; i < numpers; i++) {
 		personajes[i] = personajes[i + 1];
+	}
+}
+
+
+void Mapa::agregarBonus(Vector a) {
+	bonus[numbon] = new Bonus(a);
+	numbon++;
+}
+
+
+void Mapa::eliminarBonus(int index) {
+	if ((index < 0) || (index >= numbon)) {
+		return;
+	}
+	delete bonus[index];
+	numbon--;
+	for (int i = index; i < numbon; i++) {
+		bonus[i] = bonus[i + 1];
 	}
 }

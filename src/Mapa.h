@@ -2,15 +2,18 @@
 #include "Suelo.h"
 #include "Pixel.h"
 #include "PersonajeNeutro.h"
+#include "Bonus.h"
 
 class Mapa {
 private:
 	Suelo* suelo[2];
 	int** matrizColision;
 	Personaje* personajes[10];
+	Bonus* bonus[10];
 	Pixel** pixColision;
 	int numpixels;
 	int numpers;
+	int numbon;
 
 	int colM;
 	int filM;
@@ -33,5 +36,7 @@ public:
 	bool operator += (Personaje* p);
 
 	void eliminarPersonaje(int index);
+	void agregarBonus(Vector a);
+	void eliminarBonus(int index);
 };
 
