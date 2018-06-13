@@ -16,6 +16,10 @@ void Mundo::Inicializa() {
 
 		mapa = new Mapa("sources/Mapa1.txt", "images/Mapa1.png", "images/Mapa1_2.png");
 
+		*mapa += new PersonajeNeutro(20, 20, 40, -40, "images/Misterioso.png", 3, 4);
+		*mapa += new Sanador(20, 20, -140, -70, "images/Sanador.png", 3, 4);
+		*mapa += new Vendedor(20, 20, 150, 10, "images/Vendedor.png", 3, 4);
+
 		glOrtho((vista.getx() - 320) / zoom, (vista.getx() + 320) / zoom, (vista.gety() - 240) / zoom, (vista.gety() + 240) / zoom, -1, 1);
 	}
 }
@@ -31,6 +35,10 @@ void Mundo::Dibuja() {
 	mapa->Dibuja();
 	protagonista->Dibuja();
 	mapa->Dibuja2();
+
+
+	Interaccion::Interacc_Neutro(interaccion_personaje, *protagonista, *mapa, movimiento.getInteraccion());		
+					//Se escribe aqui puesto que es una interaccion que realiza dibujos
 }
 
 void Mundo::Mueve() {
@@ -40,6 +48,8 @@ void Mundo::Mueve() {
 
 	Mundo::Interacciona();
 	Mundo::MueveCamara();
+
+	mapa->Mueve(0.015f);
 
 	if (myMap == MAPA1) {
 		if (protagonista->getPosiciony() >= 120) {
@@ -56,6 +66,10 @@ void Mundo::Mueve() {
 			delete mapa;
 			mapa = new Mapa("sources/Mapa1.txt", "images/Mapa1.png", "images/Mapa1_2.png");
 			protagonista->setPosicion(0, 90);
+
+			*mapa += new PersonajeNeutro(20, 20, 40, -40, "images/Misterioso.png", 3, 4);
+			*mapa += new Sanador(20, 20, -100, -70, "images/Sanador.png", 3, 4);
+			*mapa += new Vendedor(20, 20, 100, -50, "images/Vendedor.png", 3, 4);
 		}
 	}
 }
@@ -127,6 +141,16 @@ void Mundo::Tecla(unsigned char key) {
 	case 'p':
 		zoom = 1;
 		break;
+	case 'e':
+	case 'E':
+		if (interaccion_personaje == false) {
+			interaccion_personaje = true;
+			movimiento.setInteraccion(true);
+		}
+		else if (interaccion_personaje == true) {
+			interaccion_personaje = false;
+		}
+		break;
 	}
 }
 
@@ -161,6 +185,10 @@ void Mundo::TeclaUp(unsigned char key) {
 	case 'S':
 	case 's':
 		movimiento.setInputs(4, false);
+		break;
+	case 'e':
+	case 'E':
+		movimiento.setInteraccion(false);
 		break;
 	}
 }

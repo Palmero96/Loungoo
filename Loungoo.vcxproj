@@ -144,8 +144,10 @@
     <ClCompile Include="src\PersonajeNeutro.cpp" />
     <ClCompile Include="src\Pixel.cpp" />
     <ClCompile Include="src\Protagonista.cpp" />
+    <ClCompile Include="src\Sanador.cpp" />
     <ClCompile Include="src\Suelo.cpp" />
     <ClCompile Include="src\Vector.cpp" />
+    <ClCompile Include="src\Vendedor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Animaciones.h" />
@@ -162,8 +164,10 @@
     <ClInclude Include="src\PersonajeNeutro.h" />
     <ClInclude Include="src\Pixel.h" />
     <ClInclude Include="src\Protagonista.h" />
+    <ClInclude Include="src\Sanador.h" />
     <ClInclude Include="src\Suelo.h" />
     <ClInclude Include="src\Vector.h" />
+    <ClInclude Include="src\Vendedor.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\glut32.lib" />

@@ -7,7 +7,7 @@ class Mapa {
 private:
 	Suelo* suelo[2];
 	int** matrizColision;
-	PersonajeNeutro* personajes[10];
+	Personaje* personajes[10];
 	Pixel** pixColision;
 	int numpixels;
 	int numpers;
@@ -27,6 +27,9 @@ public:
 
 	void Dibuja();
 	void Dibuja2();
+	void Mueve(float t);
 	void setPixels();
+
+	bool operator += (Personaje* p);
 };
 

@@ -30,3 +30,15 @@ void Interaccion::Colision(Personaje& p, Mapa& m) {
 		Interaccion::Colision(p, *m.pixColision[i]);
 	}
 }
+
+
+void Interaccion::Interacc_Neutro(bool a, Personaje& p, Mapa& m, bool b) {
+	for (int i = 0; i < m.numpers; i++) {
+		if (a) {
+			if (p.posicion[m.personajes[i]->getPosicion()] <= m.personajes[i]->getRango()) {
+				//if (b) p.resetMovale();
+				m.personajes[i]->Interacciona(p.getPosicion());
+			}
+		}
+	}
+}

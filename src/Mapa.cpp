@@ -74,6 +74,10 @@ Mapa::~Mapa() {
 
 void Mapa::Dibuja() {
 	suelo[0]->Dibuja();
+
+	for (int i = 0; i < numpers; i++) {
+		personajes[i]->Dibuja();
+	}
 }
 
 void Mapa::Dibuja2() {
@@ -85,6 +89,13 @@ void Mapa::Dibuja2() {
 }
 
 
+void Mapa::Mueve(float t) {
+	for (int i = 0; i < numpers; i++) {
+		personajes[i]->Mueve(t);
+	}
+}
+
+
 void Mapa::setPixels() {
 	for (int i = 0; i < colM; i++) {
 		for (int u = 0; u < filM; u++) {
@@ -93,4 +104,13 @@ void Mapa::setPixels() {
 			}
 		}
 	}
+}
+
+
+bool Mapa::operator += (Personaje* p) {
+	if (numpers < 10) {
+		personajes[numpers++] = p;
+		return true;
+	}
+	else return false;
 }

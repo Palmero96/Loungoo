@@ -1,6 +1,8 @@
 #pragma once
 #include "Vector.h"
 #include "Protagonista.h"
+#include "Sanador.h"
+#include "Vendedor.h"
 #include "Movimiento.h"
 #include "Mapa.h"
 
@@ -26,6 +28,8 @@ private:
 	Protagonista* protagonista;
 	Movimiento movimiento;	
 	Mapa* mapa;
+
+	int interaccion_personaje;
 public:
 	~Mundo();
 
