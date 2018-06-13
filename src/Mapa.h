@@ -31,5 +31,7 @@ public:
 	void setPixels();
 
 	bool operator += (Personaje* p);
+
+	void eliminarPersonaje(int index);
 };
 

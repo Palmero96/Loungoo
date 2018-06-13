@@ -1,10 +1,11 @@
 #pragma once
 #include "Vector.h"
-#include "Protagonista.h"
 #include "Sanador.h"
 #include "Vendedor.h"
+#include "Enemigo.h"
 #include "Movimiento.h"
 #include "Mapa.h"
+
 
 #define SPACEBAR 32
 

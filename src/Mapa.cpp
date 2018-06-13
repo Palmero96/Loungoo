@@ -114,3 +114,15 @@ bool Mapa::operator += (Personaje* p) {
 	}
 	else return false;
 }
+
+
+void Mapa::eliminarPersonaje(int index) {
+	if ((index < 0) || (index >= numpers)) {
+		return;
+	}
+	delete personajes[index];
+	numpers--;
+	for (int i = index; i < numpers; i++) {
+		personajes[i] = personajes[i + 1];
+	}
+}

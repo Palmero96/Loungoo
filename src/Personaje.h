@@ -6,6 +6,8 @@ using ETSIDI::SpriteSequence;
 
 class Personaje {
 protected:
+	float vida;
+
 	Vector posicion;
 	Vector velocidad;
 	float velocidad_modulo;
@@ -33,5 +35,8 @@ public:
 
 	virtual float getRango() { return 0; }
 	virtual void Interacciona(Vector p) {}
+	virtual bool Dispara() { return false; }
+
+	virtual void restarVida(float a) {}
 };
 

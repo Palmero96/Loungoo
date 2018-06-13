@@ -19,5 +19,6 @@ public:
 	virtual void Mueve(float t);
 
 	void resetMovale();
+	void restarVida(float a) { return; }
 };
 
